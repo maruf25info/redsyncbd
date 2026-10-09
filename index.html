@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c91f35"><meta name="description" content="RedSyncBD — বাংলাদেশের রক্তদাতা ও রক্তের প্রয়োজনীয়তা নিয়ে একটি পরীক্ষামূলক মোবাইল প্রিভিউ।"><title>RedSyncBD — রক্তদানে পাশে, জীবনের আশায়</title>
+<style>
+:root{--red:#d92f43;--red2:#b91f35;--pink:#fff0f2;--ink:#191b25;--muted:#777d8b;--line:#e9eaf0;--bg:#f6f7fa;--green:#138567;--white:#fff;--shadow:0 12px 32px #25283a0b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:14px/1.45 Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Bengali",sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer;transition:transform .16s,background .16s,border-color .16s}button:active{transform:scale(.985)}.app{max-width:520px;min-height:100dvh;margin:auto;background:var(--bg);padding-bottom:94px;position:relative}.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:13px 18px;background:#f8f9fbea;backdrop-filter:blur(16px);border-bottom:1px solid #e9eaf055}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(145deg,#ffe8eb,#ffd5db);color:var(--red);display:grid;place-items:center;font-size:25px;box-shadow:inset 0 0 0 1px #f9c6ce}.brand{font-size:19px;font-weight:900;letter-spacing:-.55px}.tagline{font-size:10px;color:var(--muted);letter-spacing:.15px}.top-action{margin-left:auto;border:1px solid var(--line);background:white;width:42px;height:42px;border-radius:14px;color:var(--ink);font-size:18px;position:relative}.dot{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--red);right:8px;top:8px;border:1px solid white}main{padding:12px 17px 24px}.screen{display:none;animation:rise .22s ease}.screen.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}.hero{position:relative;overflow:hidden;padding:24px 21px 20px;border-radius:25px;color:white;background:radial-gradient(circle at 95% 0%,#ff7d8730 0 20%,transparent 21%),linear-gradient(135deg,#e74758,#b91f35);box-shadow:0 12px 27px #c91f3522}.hero:after{content:"♥";position:absolute;right:-8px;top:13px;font-size:124px;line-height:1;color:#ffffff0d;transform:rotate(13deg)}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:1.6px;font-weight:850;color:#ffe3e7;display:flex;align-items:center;gap:7px}.live-dot{width:6px;height:6px;border-radius:50%;background:#aaffd5;box-shadow:0 0 0 4px #aaffd520}.hero h1{font-size:28px;line-height:1.12;letter-spacing:-.8px;margin:12px 0 9px;font-weight:900;position:relative;z-index:1}.hero p{font-size:12px;color:#ffe9eb;margin:0 0 19px;position:relative;z-index:1}.hero-actions{display:flex;gap:9px;position:relative;z-index:1}.btn{border:0;border-radius:13px;padding:12px 15px;font-weight:800;display:inline-flex;justify-content:center;align-items:center;gap:7px;min-height:44px}.btn-red{background:linear-gradient(135deg,#e74758,#c92138);color:#fff;box-shadow:0 6px 15px #d92f4325}.btn-white{background:white;color:var(--red)}.btn-ghost{background:#ffffff1f;color:white;border:1px solid #ffffff2e}.btn-light{background:var(--pink);color:var(--red)}.btn-outline{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn-full{width:100%}.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:23px 0 12px}.section-head h2,.page-title{font-size:19px;letter-spacing:-.45px;margin:0;font-weight:900}.section-head p,.subtitle{font-size:11px;color:var(--muted);margin:4px 0 0}.text-btn{border:0;background:transparent;color:var(--red);font-weight:800;padding:7px 0;font-size:12px}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.quick{border:1px solid var(--line);background:white;border-radius:18px;padding:14px 5px 12px;min-height:103px;box-shadow:0 3px 9px #25283a04}.qicon{width:42px;height:42px;margin:0 auto 8px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:#fff0f2;color:var(--red)}.quick:nth-child(2) .qicon{background:#e8f6f0;color:var(--green)}.quick:nth-child(3) .qicon{background:#edf1ff;color:#4662c6}.quick b{font-size:10px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:11px;box-shadow:var(--shadow)}.request-card{display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;color:inherit}.blood{flex:0 0 48px;width:48px;height:48px;display:grid;place-items:center;background:linear-gradient(145deg,#fff0f2,#ffe1e5);border:1px solid #ffe0e4;border-radius:15px;color:var(--red);font-weight:950;font-size:15px}.info{flex:1;min-width:0}.request-top{display:flex;align-items:center;gap:6px}.request-top b{font-size:12px;flex:1}.urgent{font-size:8px;font-weight:950;letter-spacing:.65px;color:var(--red);background:#fff0f2;padding:5px 7px;border-radius:7px}.hospital{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5}.meta{display:flex;gap:9px;flex-wrap:wrap;font-size:10px;color:var(--muted);margin-top:8px}.banner{display:flex;gap:12px;align-items:center;background:#eaf6f1;border:1px solid #dcefe7;border-radius:18px;padding:15px;margin-top:17px}.banner-icon{width:43px;height:43px;display:grid;place-items:center;background:#d6efe5;border-radius:14px;font-size:22px}.banner b{font-size:12px}.banner p{font-size:10px;color:#65766f;margin:4px 0 0}.bottom-nav{position:fixed;z-index:12;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 5px calc(8px + env(safe-area-inset-bottom));background:#ffffffed;backdrop-filter:blur(18px);border-top:1px solid var(--line)}.nav-item{border:0;background:transparent;color:#969ba7;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 0;font-size:9px;font-weight:800}.nav-icon{font-size:20px;line-height:1.1}.nav-item.active{color:var(--red)}.nav-item.active .nav-icon{background:#ffeaed;border-radius:11px;padding:5px 13px}.page-intro{margin:7px 0 18px}.page-title{font-size:25px}.search{position:relative;margin:15px 0 11px}.search span{position:absolute;left:14px;top:11px;color:var(--muted);font-size:20px}.control{width:100%;padding:13px 13px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);outline:none;transition:.18s}.control:focus{border-color:#e77a86;box-shadow:0 0 0 3px #d92f4310}.search .control{padding-left:42px}.field{margin:13px 0}.field label{display:block;font-size:11px;font-weight:850;margin:0 0 7px}.field label .req{color:var(--red)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.alert{display:flex;gap:10px;background:#fff0f2;border:1px solid #ffdde2;border-radius:15px;padding:12px;color:#64373d;font-size:10px;line-height:1.55;margin:15px 0}.alert-icon{width:30px;height:30px;flex-shrink:0;background:#ffe0e4;border-radius:10px;display:grid;place-items:center;color:var(--red);font-size:16px}.small-note{font-size:10px;color:var(--muted);line-height:1.55}.checkline{display:flex;gap:9px;align-items:flex-start;font-size:11px;margin:14px 0}.checkline input{accent-color:var(--red);margin-top:3px}.profile-card{text-align:center;padding:22px 17px}.avatar{height:76px;width:76px;border-radius:25px;background:linear-gradient(145deg,#fff0f2,#ffdfe4);color:var(--red);font-size:32px;display:grid;place-items:center;margin:0 auto 12px;border:1px solid #ffdee3}.profile-card h2{margin:0;font-size:19px}.profile-card p{font-size:11px;color:var(--muted);margin:5px 0 15px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 18px}.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px 4px;text-align:center}.stat b{display:block;font-size:18px;color:var(--red)}.stat span{font-size:9px;color:var(--muted)}.menu{display:flex;align-items:center;gap:11px;text-align:left;width:100%;margin-bottom:9px}.menu-icon{width:40px;height:40px;flex-shrink:0;border-radius:13px;background:#f7f7fa;display:grid;place-items:center;color:var(--red);font-size:19px}.menu-copy{flex:1}.menu-copy b{font-size:11px}.menu-copy p{font-size:10px;color:var(--muted);margin:3px 0 0}.chev{color:#a1a5af;font-size:20px}.post-head{display:flex;align-items:center;gap:10px}.post-avatar{width:39px;height:39px;flex-shrink:0;border-radius:14px;background:#ffe7ea;color:var(--red);display:grid;place-items:center;font-weight:900}.post-head b{font-size:11px}.post-head small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.post h3{font-size:14px;margin:14px 0 6px}.post p{font-size:11px;line-height:1.65;color:#555b68;margin:0}.post-actions{border-top:1px solid var(--line);margin-top:13px;padding-top:11px;display:flex;gap:15px;color:var(--muted);font-size:10px}.empty{text-align:center;padding:30px 10px;color:var(--muted)}.empty strong{display:block;color:var(--ink);margin:8px 0 4px}.toast{position:fixed;z-index:50;bottom:91px;left:50%;transform:translate(-50%,12px);background:#222631;color:white;padding:12px 16px;border-radius:13px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 8px 25px #0002;width:max-content;max-width:90%}.toast.show{opacity:1;transform:translate(-50%,0)}.backdrop{display:none;position:fixed;inset:0;background:#17192385;backdrop-filter:blur(4px);z-index:30;align-items:flex-end;justify-content:center;padding-top:22px}.backdrop.show{display:flex;animation:fade .15s}.backdrop.gated{align-items:center;padding:12px;background:linear-gradient(145deg,#9f172d,#e74758)}.backdrop.gated .modal{border-radius:25px;max-height:94dvh;box-shadow:0 25px 80px #4c0d1b55}.helper-box{padding:10px 12px;border-radius:12px;background:#f7f8fb;color:var(--muted);font-size:10px;line-height:1.5;margin:9px 0}.modal{background:#fff;width:min(520px,100%);max-height:88dvh;overflow:auto;border-radius:25px 25px 0 0;padding:20px 19px calc(23px + env(safe-area-inset-bottom));box-shadow:0 -12px 50px #0001;animation:sheet .22s ease}.modal-head{display:flex;align-items:start;gap:12px;margin-bottom:17px}.modal-head>div{flex:1}.modal h2{font-size:19px;letter-spacing:-.3px;margin:0}.modal .desc{font-size:11px;color:var(--muted);margin:5px 0 0}.close{border:0;background:#f3f4f7;color:#646a77;border-radius:11px;width:34px;height:34px;font-size:17px}.modal-foot{display:flex;gap:9px;margin-top:17px}.modal-foot>*{flex:1}.detail-row{padding:12px 0;border-bottom:1px solid var(--line)}.detail-row small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}.detail-row b{font-size:12px}.notice{background:#fff7e8;color:#75531d;padding:11px;border-radius:12px;font-size:10px;line-height:1.55;margin-top:13px}.tabs{display:flex;gap:4px;padding:4px;background:#f3f4f7;border-radius:13px;margin:14px 0}.tabs button{flex:1;border:0;background:transparent;border-radius:10px;padding:10px 5px;font-weight:800;font-size:11px;color:var(--muted)}.tabs button.active{background:white;color:var(--red);box-shadow:0 2px 7px #2222220a}.password-wrap{position:relative}.password-wrap input{padding-right:47px}.password-wrap button{position:absolute;right:7px;top:7px;height:32px;width:34px;border:0;background:#f5f5f7;border-radius:9px;color:var(--muted)}.auth-brand{text-align:center;margin:4px 0 18px}.auth-mark{height:53px;width:53px;border-radius:18px;display:grid;place-items:center;margin:0 auto 9px;background:var(--pink);font-size:28px;color:var(--red)}.auth-brand b{font-size:16px}.auth-brand p{font-size:10px;color:var(--muted);margin:4px 0 0}.modal-label{display:flex;justify-content:space-between;align-items:center}.modal-label button{border:0;background:none;color:var(--red);font-size:10px;font-weight:800}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:6px 9px;background:#eaf6f1;color:var(--green);font-size:9px;font-weight:850}.toggle-row{display:flex;align-items:center;gap:10px}.toggle-row input{accent-color:var(--red)}@keyframes sheet{from{transform:translateY(25px);opacity:.5}to{transform:none;opacity:1}}@media(min-width:600px){body{padding:18px 0}.app{border-radius:27px;overflow:hidden;min-height:calc(100dvh - 36px);box-shadow:0 15px 60px #20243a12}.bottom-nav{bottom:18px;border-radius:0 0 27px 27px}.backdrop{align-items:center}.modal{border-radius:25px;max-height:82dvh}}
+
+/* RedSyncBD v3 polish */
+:root{--red:#c91f35;--red2:#a9162a;--pink:#fff0f2;--ink:#171923;--muted:#707684;--line:#e8eaf0;--bg:#f5f6f9;--green:#168568;--white:#fff;--shadow:0 8px 26px #1d23300b}
+body{background:#f0f1f5}
+.app{box-shadow:0 0 0 1px #e9eaf0;overflow:hidden}
+.topbar{padding-top:max(13px,env(safe-area-inset-top));}
+.logo,.auth-mark{box-shadow:none}
+.hero{box-shadow:none;border-radius:22px}
+.card,.quick,.banner,.alert,.search,.control{box-shadow:none}
+.card{border:1px solid var(--line);border-radius:17px}
+.quick{border:1px solid var(--line);border-radius:16px}
+.btn{border-radius:13px}
+.control{border-radius:12px;min-height:46px}
+.bottom-nav{padding-bottom:max(10px,env(safe-area-inset-bottom));}
+.small-note{line-height:1.65}
+.splash-screen{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:28px;background:radial-gradient(circle at 50% 30%,#ffe6ea 0,transparent 34%),linear-gradient(155deg,#fff 0%,#fff7f8 54%,#f7f8fb 100%);transition:opacity .35s ease,visibility .35s ease}
+.splash-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash-inner{width:min(100%,360px);text-align:center;display:flex;flex-direction:column;align-items:center}
+.splash-mark{width:88px;height:88px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(145deg,#d92f43,#a9162a);color:white;font-size:42px;box-shadow:0 18px 42px #c91f3525;animation:heartbeat 1.8s ease-in-out infinite}
+.splash-name{font-size:31px;letter-spacing:-1.1px;font-weight:900;margin-top:22px;color:var(--ink)}
+.splash-name span{color:var(--red)}
+.splash-tag{font-size:12px;color:var(--muted);margin-top:5px;letter-spacing:.7px}
+.splash-line{height:4px;width:108px;border-radius:99px;background:#f0dce0;overflow:hidden;margin-top:32px}
+.splash-line:after{content:"";display:block;height:100%;width:42%;border-radius:99px;background:var(--red);animation:loadline 1.15s ease-in-out infinite}
+.splash-bottom{position:absolute;bottom:calc(25px + env(safe-area-inset-bottom));font-size:11px;color:#969ba6;text-align:center}
+@keyframes heartbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.055)}24%{transform:scale(1)}}
+@keyframes loadline{from{transform:translateX(-120%)}to{transform:translateX(260%)}}
+.demo-label{display:inline-flex;align-items:center;gap:5px;border-radius:99px;background:#fff5df;color:#8c5b00;font-size:10px;font-weight:800;padding:4px 8px;white-space:nowrap}
+@media(min-width:600px){body{padding:18px 0}.app{border-radius:24px;min-height:calc(100dvh - 36px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* Registration validation: show a red border, never the browser's floating validation bubble. */
+.auth-form .control.field-error{border:1.5px solid #c91f35!important;box-shadow:none!important;background:#fffafa!important}
+.auth-form .control[aria-invalid="true"]:focus{outline:none;box-shadow:none!important}
+.never-donated{border:0!important;background:transparent!important;padding:8px 0!important;border-radius:0!important;box-shadow:none!important}
+.never-donated:focus-within{outline:none!important;box-shadow:none!important;border:0!important}
+.never-donated input,.consent-row input{appearance:none;-webkit-appearance:none;width:19px!important;height:19px!important;min-height:19px!important;border:1.5px solid #cbd2dc;border-radius:5px;background:#fff;display:inline-grid;place-content:center;outline:none!important;box-shadow:none!important;cursor:pointer;flex:0 0 19px!important}
+.never-donated input:checked,.consent-row input:checked{background:#c91f35;border-color:#c91f35;box-shadow:0 0 0 3px #c91f3512!important}
+.never-donated input:checked::after,.consent-row input:checked::after{content:'✓';font-size:14px;line-height:1;color:#fff;font-weight:900}
+.never-donated input:focus,.consent-row input:focus{outline:none!important;box-shadow:none!important}
+.never-donated.field-error{outline:none!important;border:0!important;background:transparent!important}
+.consent-row.field-error input{border-color:#c91f35!important}
+
+.auth-form #auth-last-date-field[hidden]{display:none!important}
+</style>
+<style>
+
+/* Premium mobile UX polish */
+:root{--rs-red:#bd1734;--rs-deep:#8f1028;--rs-ink:#18212c;--rs-muted:#6c7786;--rs-line:#e5e9ef;--rs-soft:#fff1f4}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(180deg,#fff 0,#f7f8fa 280px,#f6f7f9 100%);-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #bd173444;outline-offset:2px}
+button:disabled{opacity:.65;cursor:wait}
+.card,.item,.request-card,.post{box-shadow:none!important;border:1px solid var(--rs-line);transition:border-color .18s ease,transform .18s ease}
+.card:hover,.item:hover,.request-card:hover,.post:hover{border-color:#e8a7b4}
+.btn,.btn-red{box-shadow:0 4px 12px #bd17341a}
+.btn:active,.btn-red:active{transform:scale(.985)}
+input,select,textarea{min-height:46px}
+textarea{resize:vertical}
+.status{border-radius:12px;padding:12px 14px}
+#toast{max-width:min(92vw,430px);left:50%;right:auto;transform:translate(-50%,18px);bottom:calc(18px + env(safe-area-inset-bottom));border-radius:14px;padding:13px 16px;box-shadow:0 12px 34px #11182726;z-index:9999;line-height:1.5}
+#toast.show{transform:translate(-50%,0)}
+#modal-backdrop{background:rgba(13,20,30,.56);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);padding:16px;align-items:center;justify-content:center;z-index:1000;animation:rsFade .18s ease}
+#modal{width:min(100%,520px);max-height:min(88dvh,850px);overflow:auto;border:1px solid #ffffffa8;border-radius:24px;background:#fff;box-shadow:0 24px 80px #0c14263b;animation:rsPop .22s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+.modal-head{position:sticky;top:0;z-index:2;background:#fff;border-bottom:1px solid #edf0f4;padding:18px 18px 14px}
+.modal-head h2,.modal-head h3{letter-spacing:-.3px}
+#modal-body{padding:18px}
+.modal-foot{position:sticky;bottom:0;background:#fff;border-top:1px solid #edf0f4;padding:13px 18px calc(13px + env(safe-area-inset-bottom))}
+.modal-label{font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--rs-muted);text-transform:uppercase}
+#modal input,#modal select,#modal textarea{border:1px solid #dfe4eb;border-radius:13px;background:#fbfcfd;padding:12px 13px;width:100%;min-height:48px}
+#modal input:focus,#modal select:focus,#modal textarea:focus{background:#fff;border-color:var(--rs-red);box-shadow:0 0 0 4px #bd173414;outline:0}
+#modal .btn,#modal button[type=submit]{min-height:48px;border-radius:13px;font-weight:800}
+#modal .helper-box{background:#f8f9fb;border:1px solid #edf0f4;border-radius:14px;padding:12px}
+#modal .error,#modal .form-error{background:#fff0f2;color:#a40f2b;border-radius:12px;padding:11px 12px;font-size:13px}
+#modal .success{background:#e9f8f0;color:#126847;border-radius:12px;padding:11px 12px;font-size:13px}
+#modal-backdrop .modal-close{width:38px;height:38px;border:0;border-radius:12px;background:#f3f5f7;color:#374151;display:grid;place-items:center}
+#auth-form button[type=submit]{width:100%;min-height:50px;border-radius:14px}
+.nav-item,.bottom button{transition:background .18s,color .18s}
+.empty{border:1px dashed #d6dde6;background:#ffffffb8;border-radius:16px;padding:25px 18px}
+.profile-card{border-radius:22px}
+@keyframes rsFade{from{opacity:0}to{opacity:1}}
+@keyframes rsPop{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:600px){
+ #modal-backdrop{padding:0;align-items:flex-end}
+ #modal{width:100%;max-height:91dvh;border-radius:24px 24px 0 0;border-bottom:0;animation:rsSheet .24s cubic-bezier(.2,.8,.2,1)}
+ .modal-head{padding:16px 16px 12px}
+ #modal-body{padding:15px 16px}
+ .modal-foot{padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+ .card{border-radius:16px}
+}
+@keyframes rsSheet{from{transform:translateY(28px);opacity:.7}to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* Registration redesign — clear hierarchy, grouped fields, mobile-first */
+.auth-page{padding:0 2px 5px;color:#18212c}.auth-top{display:flex;align-items:center;gap:11px;padding:2px 0 20px;border-bottom:1px solid #edf0f4}.auth-brand-mark{width:44px;height:44px;flex:0 0 44px;border-radius:15px;display:grid;place-items:center;color:#fff;font-size:22px;background:linear-gradient(145deg,#d92f43,#a9162a)}.auth-brand-copy{display:flex;flex-direction:column;gap:2px}.auth-brand-copy b{font-size:19px;line-height:1.15;letter-spacing:-.6px}.auth-brand-copy b span{color:#c91f35}.auth-brand-copy small{font-size:10px;color:#7b8491}.auth-close{margin-left:auto;flex-shrink:0}.auth-heading{padding:21px 0 13px}.auth-kicker{font-size:9px;letter-spacing:1.5px;font-weight:900;color:#c91f35;background:#fff0f2;border-radius:99px;padding:6px 9px;display:inline-flex}.auth-heading h2{font-size:23px;letter-spacing:-.65px;line-height:1.3;margin:11px 0 5px;color:#18212c}.auth-heading p{font-size:12px;color:#737d8a;line-height:1.65;margin:0}.auth-tabs{margin:8px 0 19px;padding:4px;background:#f2f4f7;border-radius:13px;display:grid;grid-template-columns:1fr 1fr;gap:4px}.auth-tabs button{border:0;border-radius:10px;background:transparent;color:#697382;min-height:42px;font-size:12px;font-weight:800}.auth-tabs button.active{background:#fff;color:#b91f35;box-shadow:0 1px 5px #18212c0d}.auth-form{display:block}.form-section{padding:15px 14px 4px;margin:0 0 13px;border:1px solid #e9edf2;border-radius:17px;background:linear-gradient(145deg,#fff,#fcfcfd)}.form-section-title{display:flex;align-items:center;gap:10px;padding-bottom:12px;margin-bottom:5px;border-bottom:1px solid #f0f2f5}.section-number{width:31px;height:31px;display:grid;place-items:center;flex:0 0 31px;border-radius:10px;background:#fff0f2;color:#bd1734;font-size:10px;font-weight:900}.form-section-title div{display:flex;flex-direction:column;gap:2px}.form-section-title b{font-size:12px}.form-section-title small{font-size:10px;color:#8a929e}.auth-form .field{margin:12px 0 14px}.auth-form .field label{font-size:11px;color:#333b48;margin-bottom:7px}.auth-form .field label i{font-style:normal;color:#c91f35}.field-label-row{display:flex;justify-content:space-between;align-items:center;gap:8px}.field-label-row label{margin:0!important}.text-link{padding:0;border:0;background:transparent;color:#bd1734;font-size:10px;font-weight:800}.auth-form .control{background:#f9fafb;border-color:#e1e6ed;border-radius:12px;min-height:48px;padding:13px 12px;font-size:13px}.auth-form .control::placeholder{color:#a0a7b2}.auth-form .control:focus{background:#fff;border-color:#cb5366;box-shadow:0 0 0 3px #c91f3512}.input-hint{display:block;color:#89919d;font-size:10px;line-height:1.55;margin-top:6px}.password-wrap{position:relative}.password-wrap .control{padding-right:48px!important}.password-toggle{position:absolute;right:6px;top:5px;width:38px;height:38px;border:0;border-radius:10px;background:#eef1f5;color:#667080}.never-donated{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #e8ebf0;background:#f9fafb;border-radius:13px;margin:13px 0 12px;cursor:pointer}.never-donated input{width:17px;height:17px;min-height:17px;accent-color:#c91f35;flex:0 0 17px}.never-icon{display:none}.never-donated span:last-child{display:flex;flex-direction:column;gap:3px}.never-donated b{font-size:11px}.never-donated small{font-size:10px;color:#858e9b}.medical-note{display:flex;gap:9px;align-items:flex-start;padding:11px 12px;background:#fff7e8;border:1px solid #f6e7c7;border-radius:12px;margin:12px 0 13px;color:#795d27}.medical-note>span{font-size:15px}.medical-note p{font-size:10px;line-height:1.6;margin:0}.consent-row{display:flex;align-items:flex-start;gap:9px;font-size:10px;line-height:1.7;color:#707987;margin:15px 2px}.consent-row input{width:16px;height:16px;min-height:16px;margin-top:2px;accent-color:#c91f35;flex:0 0 16px}.consent-row button{padding:0;border:0;background:none;color:#bd1734;text-decoration:underline;font-size:inherit;font-weight:800}.auth-gate-note{padding:11px 12px;border-radius:12px;background:#fff0f2;color:#9e2336;font-size:10px;line-height:1.6;margin:12px 0}.auth-submit{min-height:52px!important;display:flex;justify-content:space-between!important;padding:0 17px!important;border-radius:14px!important;font-size:13px!important;background:linear-gradient(105deg,#d52d43,#a9162a)!important;box-shadow:0 8px 18px #bd17341c!important}.submit-arrow{width:29px;height:29px;display:grid;place-items:center;border-radius:9px;background:#ffffff24;font-size:18px}.auth-bottom-note{text-align:center;color:#8a929e;font-size:10px;line-height:1.6;margin:12px 8px 2px}.auth-login .form-section{padding-bottom:2px}
+@media(max-width:600px){.auth-page{padding-bottom:calc(5px + env(safe-area-inset-bottom))}.auth-heading h2{font-size:22px}.form-section{padding:13px 12px 3px;margin-bottom:11px}.auth-top{padding-bottom:16px}.auth-tabs{margin-bottom:15px}}
+
+
+/* Clean custom checkbox states: no native duplicate box, clear checked feedback */
+.never-donated{position:relative;gap:12px;padding:13px 14px;border:1px solid #e7e9ee;background:#fff;border-radius:14px;transition:border-color .18s,background .18s}
+.never-donated input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;margin:0;pointer-events:none}
+.never-donated .never-icon{width:22px;height:22px;flex:0 0 22px;border:1.7px solid #cfd4de;border-radius:50%;background:#fff;display:grid;place-items:center;color:transparent;font-size:14px;font-weight:900;line-height:1;transition:all .18s}
+.never-donated:has(input:checked){border-color:#c91f35;background:#fff8f9}
+.never-donated input:checked + .never-icon{border-color:#c91f35;background:#c91f35;color:#fff;box-shadow:0 0 0 3px #c91f3512}
+.never-donated:focus-within{outline:2px solid #c91f3528;outline-offset:2px}
+.consent-row{display:flex;align-items:flex-start;gap:11px;cursor:pointer}
+.consent-row input{appearance:none;-webkit-appearance:none;flex:0 0 22px;width:22px;height:22px;min-height:22px;margin:1px 0 0;border:1.7px solid #cfd4de;border-radius:50%;background:#fff;display:grid;place-items:center;cursor:pointer;transition:all .18s;box-shadow:none!important;outline:none!important}
+.consent-row input:checked{background:#c91f35;border-color:#c91f35;box-shadow:0 0 0 3px #c91f3512!important}
+.consent-row input:checked:after{content:'✓';font-size:14px;font-weight:900;color:#fff;line-height:1}
+.consent-row input:focus,.consent-row input:focus-visible{outline:none!important;box-shadow:none!important}
+.consent-row.field-error input{border-color:#c91f35!important;box-shadow:none!important}
+.consent-row input:checked:after{content:"✓";font-size:14px;font-weight:900;color:#fff;line-height:1}
+</style>
+</head>
+<body>
+<div class="splash-screen" id="splash-screen" aria-label="RedSyncBD loading screen">
+  <div class="splash-inner">
+    <div class="splash-mark" aria-hidden="true">♥</div>
+    <div class="splash-name">Red<span>Sync</span>BD</div>
+    <div class="splash-tag">রক্তদানে পাশে, জীবনের আশায়</div>
+    <div class="splash-line" aria-hidden="true"></div>
+  </div>
+  <div class="splash-bottom">বাংলাদেশের রক্তদাতা কমিউনিটির জন্য তৈরি<br>একটি পরীক্ষামূলক প্রিভিউ</div>
+</div>
+<div class="app">
+<header class="topbar"><div class="logo">♥</div><div><div class="brand">RedSyncBD</div><div class="tagline">রক্তদানে পাশে, জীবনের আশায়</div></div><button class="top-action" aria-label="নোটিফিকেশন" onclick="openনোটিফিকেশন()">♧<i class="dot"></i></button></header>
+<main>
+<section id="home" class="screen active">
+ <div class="hero"><div class="eyebrow"><i class="live-dot"></i> রক্তদাতা কমিউনিটি</div><h1>আপনার এক ব্যাগ রক্ত<br>বাঁচাতে পারে একটি জীবন</h1><p>এক ফোঁটা রক্ত, একটি নতুন আশা।</p><div class="hero-actions"><button class="btn btn-white" onclick="navigate('request')">＋ রক্তের অনুরোধ</button><button class="btn btn-ghost" onclick="navigate('donors')">⌕ ডোনার খুঁজুন</button></div></div>
+ <div class="section-head"><div><h2>দ্রুত সেবা</h2><p>আপনার প্রয়োজনীয় সেবাটি বেছে নিন</p></div></div>
+ <div class="quick-grid"><button class="quick" onclick="navigate('donors')"><div class="qicon">⌕</div><b>Find donors</b></button><button class="quick" onclick="openDonorSetup()"><div class="qicon">♥</div><b>Become a donor</b></button><button class="quick" onclick="navigate('donors');document.getElementById('district').value='Dhaka';renderDonors()"><div class="qicon">⌖</div><b>Explore donors</b></button></div>
+ <div class="section-head"><div><h2>Urgent requests</h2><p>এখন যাদের সাহায্য প্রয়োজন</p></div><button class="text-btn" onclick="navigate('request')">রক্তের অনুরোধ দিন ↗</button></div>
+ <div id="home-requests"></div><div class="banner"><div class="banner-icon">🫶</div><div><b>আপনার রক্তদান গুরুত্বপূর্ণ</b><p>চিকিৎসকের পরামর্শ ও রক্তদান কেন্দ্রের নিয়ম মেনে রক্তদান করুন।</p></div></div>
+ <p class="small-note" style="margin:12px 2px">পরীক্ষামূলক প্রিভিউ: এখানে দেখানো রক্তের অনুরোধগুলো নমুনা তথ্য; এগুলো বাস্তব রোগীর অনুরোধ নয়।</p>
+</section>
+<section id="donors" class="screen">
+ <div class="page-intro"><h1 class="page-title">রক্তদাতা খুঁজুন</h1><p class="subtitle">রক্তের গ্রুপ ও এলাকা নির্বাচন করে সম্ভাব্য ডোনার খুঁজুন।</p></div>
+ <div class="search"><span>⌕</span><input id="donor-search" class="control" placeholder="নাম, ব্লাড গ্রুপ বা জেলা..." oninput="renderDonors()"></div>
+ <div class="grid2"><div class="field" style="margin-top:0"><label>রক্তের গ্রুপ</label><select id="group" class="control" onchange="renderDonors()"><option>All groups</option><option>A+</option><option>A−</option><option>B+</option><option>B−</option><option>O+</option><option>O−</option><option>AB+</option><option>AB−</option></select></div><div class="field" style="margin-top:0"><label>জেলা</label><select id="district" class="control" onchange="renderDonors()"><option>All districts</option><option>Dhaka</option><option>Sylhet</option><option>Rajshahi</option><option>Chattogram</option></select></div></div>
+ <div class="section-head" style="margin-top:12px"><div><h2 id="donor-count">ডোনার</h2><p>ফিল্টারের সঙ্গে ফলাফল বদলাবে</p></div><button class="text-btn" onclick="document.getElementById('donor-search').value='';document.getElementById('group').value='All groups';document.getElementById('district').value='All districts';renderDonors()">Reset</button></div>
+ <div id="donor-list"></div><p class="small-note"><span class="demo-label">নমুনা তথ্য</span> এই তালিকার নাম ও তথ্য পরীক্ষার জন্য তৈরি; এগুলো যাচাইকৃত বা যোগাযোগযোগ্য বাস্তব ডোনার নয়। প্রকৃত ডোনারের তথ্য প্রকাশের আগে সম্মতি ও পরিচয় যাচাই দরকার।</p>
+</section>
+<section id="request" class="screen">
+ <div class="page-intro"><h1 class="page-title">রক্তের অনুরোধ</h1><p class="subtitle">রোগীর তথ্য ও রক্তের প্রয়োজনীয়তা সঠিকভাবে লিখুন।</p></div>
+ <div class="alert"><div class="alert-icon">✚</div><div><b>জরুরি পরিস্থিতি?</b><br>হাসপাতাল বা স্থানীয় জরুরি সেবার সঙ্গেও যোগাযোগ করুন।</div></div>
+ <form id="request-form">
+  <div class="field"><label>রোগীর নাম <span class="req">*</span></label><input class="control" id="patient" required maxlength="80" placeholder="রোগীর পূর্ণ নাম"></div>
+  <div class="grid2"><div class="field"><label>রক্তের গ্রুপ <span class="req">*</span></label><select class="control" id="blood" required><option>A+</option><option>A−</option><option>B+</option><option>B−</option><option selected>O+</option><option>O−</option><option>AB+</option><option>AB−</option></select></div><div class="field"><label>পরিমাণ</label><select class="control" id="units"><option>1 bag</option><option>2 bags</option><option>3 bags</option><option>4+ bags</option></select></div></div>
+  <div class="field"><label>হাসপাতাল / ক্লিনিক <span class="req">*</span></label><input class="control" id="hospital" required maxlength="140" placeholder="হাসপাতালের নাম"></div>
+  <div class="grid2"><div class="field"><label>জেলা <span class="req">*</span></label><input class="control" id="reqdistrict" required maxlength="60" placeholder="যেমন: ঢাকা"></div><div class="field"><label>উপজেলা / এলাকা</label><input class="control" id="upazila" maxlength="70" placeholder="এলাকা (ঐচ্ছিক)"></div></div>
+  <div class="field"><label>যোগাযোগের ফোন <span class="req">*</span></label><input class="control" id="phone" required inputmode="tel" pattern="[0-9+() -]{10,18}" placeholder="01XXXXXXXXX"></div>
+  <div class="field"><label>কখন রক্ত প্রয়োজন?</label><select class="control" id="urgency"><option>জরুরি — ৬ ঘণ্টার মধ্যে</option><option>আজকের মধ্যে</option><option>আগামীকাল</option><option>৩ দিনের মধ্যে</option></select></div>
+  <label class="checkline"><input id="consent" type="checkbox" required><span>আমি নিশ্চিত করছি তথ্য সঠিক এবং প্রয়োজনীয় যোগাযোগের অনুমতি রয়েছে।</span></label>
+  <button class="btn btn-red btn-full" type="submit">রিকোয়েস্ট পর্যালোচনা করুন <span>→</span></button>
+ </form><p class="small-note" style="margin-top:12px">পরীক্ষামূলক সংস্করণে রিকোয়েস্ট শুধু এই ডিভাইসের ব্রাউজারে সংরক্ষিত হয়; অন্য ব্যবহারকারী এটি দেখতে পাবেন না।</p>
+</section>
+<section id="community" class="screen">
+ <div class="page-intro"><h1 class="page-title">কমিউনিটি</h1><p class="subtitle">রক্তদান, সচেতনতা ও মানবিক উদ্যোগ নিয়ে কথা বলুন।</p></div>
+ <div class="card"><b>আপনার গল্প শেয়ার করুন</b><p class="subtitle" style="line-height:1.6;margin-bottom:12px">রক্তদানের অভিজ্ঞতা বা সচেতনতামূলক পরামর্শ লিখুন।</p><button class="btn btn-light btn-full" onclick="openPostComposer()">＋ পোস্ট লিখুন</button></div>
+ <div id="post-list"></div>
+</section>
+<section id="profile" class="screen">
+ <div class="page-intro"><h1 class="page-title">আমার প্রোফাইল</h1><p class="subtitle">ব্যক্তিগত তথ্য, রক্তদানের তথ্য ও অ্যাকাউন্ট সেটিংস।</p></div>
+ <div id="profile-content"></div>
+ <div class="card menu" onclick="openPrivacy()"><span class="menu-icon">◇</span><span class="menu-copy"><b>গোপনীয়তা ও নিরাপত্তা</b><p>আপনার তথ্য ও নিরাপত্তা</p></span><span class="chev">›</span></div>
+ <p class="small-note" style="text-align:center;margin-top:15px">RedSyncBD • মোবাইল টেস্ট প্রিভিউ 3.0</p>
+</section>
+</main>
+<nav class="bottom-nav" aria-label="Main navigation"><button class="nav-item active" data-screen="home" onclick="navigate('home')"><span class="nav-icon">⌂</span><span>হোম</span></button><button class="nav-item" data-screen="donors" onclick="navigate('donors')"><span class="nav-icon">⌕</span><span>ডোনার</span></button><button class="nav-item" data-screen="request" onclick="navigate('request')"><span class="nav-icon">⊕</span><span>অনুরোধ</span></button><button class="nav-item" data-screen="community" onclick="navigate('community')"><span class="nav-icon">♧</span><span>কমিউনিটি</span></button><button class="nav-item" data-screen="profile" onclick="navigate('profile')"><span class="nav-icon">♙</span><span>প্রোফাইল</span></button></nav>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="backdrop" id="modal-backdrop" onclick="if(event.target===this&&!authGate)closeModal()"><div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div id="modal-body"></div></div></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+// Always dismiss splash even if a Firebase SDK/network error happens.
+window.setTimeout(()=>{const s=document.getElementById('splash-screen');if(s)s.classList.add('hide')},1200);
+const KEY='redsyncbd_preview_v2';
+const seedRequests=[
+{id:'demo1',patient:'Rahima Begum',group:'O+',hospital:'Dhaka Medical College Hospital',district:'Dhaka',upazila:'Dhaka',units:'2 bags',when:'৪ ঘণ্টার মধ্যে',urgent:true,phone:'',demo:true},
+{id:'demo2',patient:'Sabbir Hasan',group:'B+',hospital:'Sylhet MAG Osmani Medical College',district:'Sylhet',upazila:'Sylhet',units:'1 bag',when:'আজ, সন্ধ্যা ৬টা',urgent:false,phone:'',demo:true},
+{id:'demo3',patient:'Nusrat Jahan',group:'A−',hospital:'Rajshahi Medical College Hospital',district:'Rajshahi',upazila:'Rajshahi',units:'1 bag',when:'আগামীকাল সকাল ৯টা',urgent:false,phone:'',demo:true}
+];
+const donors=[
+{name:'Ayesha Rahman',group:'A+',district:'Dhaka',last:'৫ মাস আগে রক্তদান'},
+{name:'Tanvir Ahmed',group:'O+',district:'Sylhet',last:'৪ মাস আগে রক্তদান'},
+{name:'Nabila Sultana',group:'B+',district:'Rajshahi',last:'৬ মাস আগে রক্তদান'},
+{name:'Rakib Hossain',group:'AB+',district:'Chattogram',last:'৭ মাস আগে রক্তদান'},
+{name:'Fahim Chowdhury',group:'O−',district:'Dhaka',last:'৮ মাস আগে রক্তদান'},
+{name:'Sadia Islam',group:'A−',district:'Sylhet',last:'৫ মাস আগে রক্তদান'}
+];
+function getData(){try{return JSON.parse(localStorage.getItem(KEY))||{users:[],session:null,requests:[],posts:[],donor:null}}catch(e){return {users:[],session:null,requests:[],posts:[],donor:null}}}
+function saveData(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){toast('এই ব্রাউজারে ডেটা সেভ করা যায়নি।');return false}}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function allRequests(){return [...getData().requests,...seedRequests]}
+function toast(msg){const e=document.getElementById('toast');e.textContent=msg;e.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>e.classList.remove('show'),2600)}
+function navigate(id){if(!getData().session){authGate=true;openAuth('login',true);return}document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.screen===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='donors')renderDonors();if(id==='profile')renderProfile();if(id==='community')renderPosts()}
+function requestCard(r){const idx=encodeURIComponent(r.id);return `<button class="card request-card" onclick="showRequest('${idx}')"><span class="blood">${esc(r.group)}</span><span class="info"><span class="request-top"><b>${esc(r.patient)}</b>${r.urgent?'<span class="urgent">জরুরি</span>':''}${r.demo?'<span class="demo-label">নমুনা</span>':''}</span><span class="hospital">${esc(r.hospital)}</span><span class="meta"><span>⌖ ${esc(r.district)}</span><span>◷ ${esc(r.when)}</span><span>▣ ${esc(r.units)}</span></span></span><span class="chev">›</span></button>`}
+function renderHome(){document.getElementById('home-requests').innerHTML=allRequests().slice(0,5).map(requestCard).join('')}
+function renderDonors(){const q=(document.getElementById('donor-search').value||'').toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;const list=donors.filter(x=>(g==='All groups'||x.group===g)&&(d==='All districts'||x.district===d)&&(`${x.name} ${x.group} ${x.district}`.toLowerCase().includes(q)));document.getElementById('donor-count').textContent=`${list.length} জন ডোনার`;document.getElementById('donor-list').innerHTML=list.length?list.map(x=>`<div class="card request-card"><span class="post-avatar">${esc(x.name.split(' ').map(y=>y[0]).slice(0,2).join(''))}</span><span class="info"><span class="request-top"><b>${esc(x.name)}</b></span><span class="hospital">${esc(x.district)} · ${esc(x.last)}</span><span class="meta"><span style="color:var(--green)">● Demo profile</span></span></span><span class="blood">${esc(x.group)}</span><button aria-label="Contact donor" onclick="event.stopPropagation();contactDonor()" style="border:0;background:#fff;color:var(--red);font-size:18px">☎</button></div>`).join(''):'<div class="card empty"><div style="font-size:32px">⌕</div><strong>কোনো ডোনার পাওয়া যায়নি</strong><span class="small-note">ব্লাড গ্রুপ বা জেলা পরিবর্তন করে দেখুন।</span></div>'}
+function showModal(content){const b=document.getElementById('modal-backdrop');document.getElementById('modal-body').innerHTML=content;b.classList.add('show');b.classList.toggle('gated',authGate);document.body.style.overflow='hidden'}
+function closeModal(){if(authGate&&!getData().session)return;const b=document.getElementById('modal-backdrop');b.classList.remove('show','gated');document.body.style.overflow=''}
+function showRequest(id){const r=allRequests().find(x=>x.id===decodeURIComponent(id));if(!r)return;showModal(`<div class="modal-head"><div><h2 id="modal-title">অনুরোধের বিস্তারিত</h2><p class="desc">রক্তের অনুরোধের বিস্তারিত</p></div><button class="close" onclick="closeModal()">×</button></div><div style="display:flex;align-items:center;gap:13px;margin-bottom:12px"><span class="blood" style="width:62px;height:62px;font-size:19px">${esc(r.group)}</span><div><b style="font-size:15px">${esc(r.patient)}</b><div class="subtitle">${esc(r.units)} · ${esc(r.when)}</div>${r.urgent?'<span class="urgent" style="display:inline-block;margin-top:7px">জরুরি রক্তের অনুরোধ</span>':''}</div></div><div class="detail-row"><small>হাসপাতাল</small><b>${esc(r.hospital)}</b></div><div class="detail-row"><small>জেলা / এলাকা</small><b>${esc(r.district)}${r.upazila?' · '+esc(r.upazila):''}</b></div><div class="notice">প্রকাশের আগে তথ্য যাচাই করুন। নমুনা অনুরোধ বাস্তব চিকিৎসা-সংক্রান্ত অনুরোধ নয়। অপরিচিত কাউকে টাকা পাঠাবেন না।</div><div class="modal-foot"><button class="btn btn-outline" onclick="closeModal()">বন্ধ করুন</button><button class="btn btn-red" onclick="contactDonor()">♥ আমি সাহায্য করতে চাই</button></div>`)}
+function contactDonor(){showModal(`<div class="modal-head"><div><h2 id="modal-title">যোগাযোগের নিরাপত্তা</h2><p class="desc">নিরাপদ রক্তদানের জন্য</p></div><button class="close" onclick="closeModal()">×</button></div><div class="alert"><div class="alert-icon">!</div><div><b>পরীক্ষামূলক সংস্করণ</b><br>এখানে বাস্তব ফোন নম্বর বা লাইভ যোগাযোগের তথ্য নেই। প্রকৃত অ্যাপে ব্যবহারকারীর সম্মতি, যাচাই এবং নিরাপদ যোগাযোগ ব্যবস্থা যুক্ত করতে হবে।</div></div><button class="btn btn-red btn-full" onclick="closeModal()">বুঝেছি</button>`)}
+function openনোটিফিকেশন(){showModal(`<div class="modal-head"><div><h2 id="modal-title">নোটিফিকেশন</h2><p class="desc">আপনার আপডেট ও জরুরি সতর্কতা</p></div><button class="close" onclick="closeModal()">×</button></div><div class="card" style="display:flex;gap:10px;margin-bottom:9px"><span class="menu-icon">♥</span><div><b style="font-size:11px">RedSyncBD-তে স্বাগতম</b><p class="small-note">অ্যাকাউন্ট তৈরি করে আপনার ডোনার প্রোফাইল সেট আপ করুন।</p></div></div><div class="notice">Push notification-এর জন্য Firebase Cloud Messaging সংযোগ করতে হবে।</div>`)}
+function renderProfile(){const d=getData(),user=d.users.find(u=>u.id===d.session),mine=d.requests.filter(r=>user&&r.owner===user.id);const name=user?user.name:'Guest User';const days=user&&user.lastDonationDate?Math.max(0,Math.floor((Date.now()-new Date(user.lastDonationDate+'T00:00:00').getTime())/86400000)):null;document.getElementById('profile-content').innerHTML=`<div class="card profile-card"><div class="avatar">${user?esc(name.split(' ').map(x=>x[0]).slice(0,2).join('')):'♙'}</div><h2>${esc(name)}</h2><p>${user?esc(user.email)+' · '+esc(user.phone||'ফোন যোগ করা হয়নি'):'অ্যাকাউন্টে প্রবেশ করুন'}</p>${user?`<span class="pill">● এই ব্রাউজারে লগইন করা আছে</span><div class="helper-box" style="text-align:left"><b>রক্তের গ্রুপ:</b> ${esc(user.bloodGroup||'যোগ করা হয়নি')}<br><b>শেষ রক্তদান:</b> ${user.neverDonated?'আগে কখনো রক্ত দেননি':(days===null?'তারিখ দেওয়া হয়নি':days+' দিন আগে')}</div>`:'<button class="btn btn-red" onclick="openAuth()">লগইন / নতুন অ্যাকাউন্ট</button>'}</div>${user?`<div class="stats"><div class="stat"><b>${mine.length}</b><span>আমার অনুরোধ</span></div><div class="stat"><b>${d.donor&&d.donor.owner===user.id?'Yes':'—'}</b><span>ডোনার অবস্থা</span></div><div class="stat"><b>${d.posts.filter(p=>p.owner===user.id).length}</b><span>আমার পোস্ট</span></div></div>`:''}<button class="card menu" onclick="${user?'openEditProfile()':'openAuth()'}"><span class="menu-icon">♙</span><span class="menu-copy"><b>প্রোফাইল সম্পাদনা</b><p>নাম, ফোন ও ডোনার তথ্য</p></span><span class="chev">›</span></button><button class="card menu" onclick="navigate('request')"><span class="menu-icon">▤</span><span class="menu-copy"><b>আমার রক্তের অনুরোধ</b><p>নিজের তৈরি অনুরোধ</p></span><span class="chev">›</span></button><button class="card menu" onclick="openDonorSetup()"><span class="menu-icon">♥</span><span class="menu-copy"><b>ডোনার হিসেবে প্রাপ্যতা</b><p>ডোনার হিসেবে তথ্য সেট করুন</p></span><span class="chev">›</span></button><button class="card menu" onclick="openনোটিফিকেশন()"><span class="menu-icon">♧</span><span class="menu-copy"><b>নোটিফিকেশন</b><p>অ্যাপের আপডেট</p></span><span class="chev">›</span></button>${user?'<button class="btn btn-outline btn-full" onclick="logout()">লগআউট</button>':''}`}
+let authMode='login';let authGate=false;
+function openAuth(mode='login',gate=false){authMode=mode;authGate=gate||authGate;drawAuth()}
+function toggleNeverDonated(){const n=document.getElementById('auth-never-donated'),date=document.getElementById('auth-last-date'),wrap=document.getElementById('auth-last-date-field');if(n&&date&&wrap){wrap.hidden=n.checked;date.disabled=n.checked;if(n.checked)date.value=''}}
+function togglePassword(){const e=document.getElementById('auth-password');e.type=e.type==='password'?'text':'password'}
+function drawAuth(){
+ const reg=authMode==='register';
+ showModal(`<div class="auth-page ${reg?'auth-register':'auth-login'}">
+ <div class="auth-top"><div class="auth-brand-mark">♥</div><div class="auth-brand-copy"><b>Red<span>Sync</span>BD</b><small>রক্তদানে পাশে, জীবনের আশায়</small></div><button class="close auth-close" style="${authGate?'display:none':''}" onclick="closeModal()" aria-label="বন্ধ করুন">×</button></div>
+ <div class="auth-heading"><span class="auth-kicker">${reg?'JOIN THE COMMUNITY':'WELCOME BACK'}</span><h2>${reg?'আপনার অ্যাকাউন্ট তৈরি করুন':'আবার স্বাগতম!'}</h2><p>${reg?'কয়েকটি তথ্য দিন, রক্তদানের কমিউনিটিতে যুক্ত হোন।':'আপনার অ্যাকাউন্টে প্রবেশ করতে তথ্য দিন।'}</p></div>
+ <div class="tabs auth-tabs"><button class="${!reg?'active':''}" onclick="openAuth('login',${authGate})">লগইন</button><button class="${reg?'active':''}" onclick="openAuth('register',${authGate})">নতুন অ্যাকাউন্ট</button></div>
+ <form id="auth-form" class="auth-form" novalidate onsubmit="submitAuth(event)">
+ ${reg?`<div class="form-section"><div class="form-section-title"><span class="section-number">01</span><div><b>ব্যক্তিগত তথ্য</b><small>আপনাকে কী নামে দেখানো হবে</small></div></div>
+ <div class="field"><label for="auth-name">পূর্ণ নাম <i>*</i></label><input class="control" id="auth-name" required minlength="2" maxlength="80" autocomplete="name" placeholder="যেমন: Maruf Ahmed"></div>
+ <div class="field"><label for="auth-phone">মোবাইল নম্বর <i>*</i></label><input class="control" id="auth-phone" required inputmode="tel" pattern="[0-9+() -]{10,18}" autocomplete="tel" placeholder="01XXXXXXXXX"><small class="input-hint">বাংলাদেশের সচল মোবাইল নম্বর দিন</small></div></div>`:''}
+ <div class="form-section"><div class="form-section-title"><span class="section-number">${reg?'02':'01'}</span><div><b>${reg?'লগইন তথ্য':'অ্যাকাউন্টে প্রবেশ'}</b><small>${reg?'পরবর্তীতে এই ইমেইল ও পাসওয়ার্ড দিয়ে লগইন করবেন':'আপনার নিবন্ধিত ইমেইল ব্যবহার করুন'}</small></div></div>
+ <div class="field"><label for="auth-email">ইমেইল ঠিকানা <i>*</i></label><input class="control" id="auth-email" type="email" required autocomplete="email" placeholder="name@example.com"></div>
+ <div class="field"><div class="field-label-row"><label for="auth-password">পাসওয়ার্ড <i>*</i></label>${!reg?'<button type="button" class="text-link" onclick="forgotPassword()">পাসওয়ার্ড ভুলে গেছেন?</button>':''}</div><div class="password-wrap"><input class="control" id="auth-password" type="password" required minlength="6" autocomplete="${reg?'new-password':'current-password'}" placeholder="কমপক্ষে ৬ অক্ষর"><button type="button" class="password-toggle" onclick="togglePassword()" aria-label="পাসওয়ার্ড দেখুন">◉</button></div>${reg?'<small class="input-hint">সহজে অনুমান করা যায় না—এমন পাসওয়ার্ড বেছে নিন</small>':''}</div></div>
+ ${reg?`<div class="form-section"><div class="form-section-title"><span class="section-number">03</span><div><b>রক্তদানের তথ্য</b><small>ডোনার খুঁজে পেতে সাহায্য করবে</small></div></div>
+ <div class="field"><label for="auth-blood">আপনার রক্তের গ্রুপ <i>*</i></label><select class="control" id="auth-blood" required><option value="">রক্তের গ্রুপ নির্বাচন করুন</option>${['A+','A−','B+','B−','O+','O−','AB+','AB−'].map(g=>`<option value="${g.replace('−','-')}">${g}</option>`).join('')}</select></div>
+ <div class="field" id="auth-last-date-field"><label for="auth-last-date">শেষ কবে রক্ত দিয়েছেন?</label><input class="control" id="auth-last-date" type="date" max="${new Date().toISOString().slice(0,10)}"><small class="input-hint">আগে রক্ত না দিয়ে থাকলে নিচের অপশনটি নির্বাচন করুন।</small></div>
+ <label class="never-donated"><input id="auth-never-donated" type="checkbox" onchange="toggleNeverDonated()"><span class="never-icon">✓</span><span><b>আমি আগে কখনো রক্ত দিইনি</b><small>তাহলে শেষ রক্তদানের তারিখ দিতে হবে না</small></span></label>
+ <div class="medical-note"><span>ⓘ</span><p>এই তথ্য প্রোফাইলের জন্য। রক্তদানের উপযুক্ততা ও পরবর্তী দানের সময় স্বাস্থ্যকর্মীর পরামর্শ নিন।</p></div></div>
+ <label class="consent-row"><input id="auth-consent" type="checkbox" required><span>আমি আমার তথ্য সংরক্ষণে সম্মত এবং <button type="button" onclick="openPrivacy()">গোপনীয়তা তথ্য</button> পড়েছি।</span></label>`:''}
+ ${authGate?'<div class="auth-gate-note">অ্যাপের Home, Donors, Request ও অন্যান্য অংশ ব্যবহার করতে আগে লগইন বা নিবন্ধন করুন।</div>':''}
+ <button class="btn btn-red btn-full auth-submit" type="submit"><span>${reg?'অ্যাকাউন্ট তৈরি করুন':'লগইন করুন'}</span><span class="submit-arrow">→</span></button>
+ <p class="auth-bottom-note">${reg?'আপনার তথ্য সঠিক দিন—প্রয়োজনে পরে প্রোফাইল থেকে আপডেট করতে পারবেন।':'নতুন এখানে? উপরে “নতুন অ্যাকাউন্ট” নির্বাচন করুন।'}</p>
+ </form></div>`);
+ const n=document.getElementById('auth-never-donated');if(n)toggleNeverDonated();
+}
+function submitAuth(e){e.preventDefault();if(!e.target.reportValidity())return;const d=getData(),email=document.getElementById('auth-email').value.trim().toLowerCase(),password=document.getElementById('auth-password').value;if(authMode==='register'){if(d.users.some(u=>u.email===email)){toast('এই ইমেইলে অ্যাকাউন্ট আছে। Sign in করুন।');return}const never=!!document.getElementById('auth-never-donated').checked;const lastDate=never?'':document.getElementById('auth-last-date').value;const user={id:'u_'+Date.now(),name:document.getElementById('auth-name').value.trim(),email,phone:document.getElementById('auth-phone').value.trim(),bloodGroup:document.getElementById('auth-blood').value,lastDonationDate:lastDate,neverDonated:never,password};d.users.push(user);d.session=user.id;saveData(d);authGate=false;closeModal();renderProfile();renderHome();toast('অ্যাকাউন্ট তৈরি হয়েছে — এই ব্রাউজারে সংরক্ষিত।');navigate('home')}else{const user=d.users.find(u=>u.email===email&&u.password===password);if(!user){toast('ইমেইল বা পাসওয়ার্ড মিলছে না।');return}d.session=user.id;saveData(d);authGate=false;closeModal();renderProfile();renderHome();toast('সাইন ইন সফল হয়েছে।');navigate('home')}}
+function forgotPassword(){showModal(`<div class="modal-head"><div><h2 id="modal-title">পাসওয়ার্ড পুনরুদ্ধার</h2><p class="desc">ডেমো অ্যাকাউন্টের জন্য</p></div><button class="close" onclick="closeModal()">×</button></div><p class="small-note">এই এক-ফাইল প্রিভিউতে ইমেইল রিসেট পাঠানো সম্ভব নয়। বাস্তব অ্যাপে Firebase Authentication-এর password reset ব্যবহার করুন।</p><button class="btn btn-red btn-full" onclick="closeModal()">ঠিক আছে</button>`)}
+function logout(){const d=getData();d.session=null;saveData(d);renderProfile();toast('সাইন আউট হয়েছে।');authGate=true;openAuth('login',true)}
+function openEditProfile(){const d=getData(),u=d.users.find(x=>x.id===d.session);if(!u){openAuth();return}showModal(`<div class="modal-head"><div><h2 id="modal-title">প্রোফাইল সম্পাদনা</h2><p class="desc">আপনার তথ্য আপডেট করুন</p></div><button class="close" onclick="closeModal()">×</button></div><form onsubmit="saveProfile(event)"><div class="field"><label>পূর্ণ নাম</label><input id="edit-name" class="control" required value="${esc(u.name)}"></div><div class="field"><label>ফোন নম্বর</label><input id="edit-phone" class="control" inputmode="tel" value="${esc(u.phone||'')}"></div><div class="field"><label>রক্তের গ্রুপ</label><select id="edit-blood" class="control">${['A+','A−','B+','B−','O+','O−','AB+','AB−'].map(g=>`<option ${u.bloodGroup===g?'selected':''}>${g}</option>`).join('')}</select></div><div class="field"><label>শেষ রক্তদানের তারিখ</label><input id="edit-last-date" type="date" max="${new Date().toISOString().slice(0,10)}" class="control" value="${esc(u.lastDonationDate||'')}"></div><label class="checkline"><input id="edit-never" type="checkbox" ${u.neverDonated?'checked':''} onchange="const x=document.getElementById('edit-last-date');x.disabled=this.checked;if(this.checked)x.value=''"><span>আগে কখনো রক্ত দিইনি</span></label><button class="btn btn-red btn-full">পরিবর্তন সংরক্ষণ</button></form>`)}
+function saveProfile(e){e.preventDefault();const d=getData(),u=d.users.find(x=>x.id===d.session);if(!u)return;u.name=document.getElementById('edit-name').value.trim();u.phone=document.getElementById('edit-phone').value.trim();u.bloodGroup=document.getElementById('edit-blood').value;u.neverDonated=document.getElementById('edit-never').checked;u.lastDonationDate=u.neverDonated?'':document.getElementById('edit-last-date').value;saveData(d);closeModal();renderProfile();toast('প্রোফাইল আপডেট হয়েছে।')}
+function openDonorSetup(){const d=getData(),u=d.users.find(x=>x.id===d.session);if(!u){showModal(`<div class="modal-head"><div><h2 id="modal-title">Become a donor</h2><p class="desc">ডোনার প্রোফাইল তৈরি করতে সাইন ইন করুন</p></div><button class="close" onclick="closeModal()">×</button></div><button class="btn btn-red btn-full" onclick="openAuth('register')">নতুন অ্যাকাউন্ট</button>`);return}const donor=d.donor&&d.donor.owner===u.id?d.donor:{};showModal(`<div class="modal-head"><div><h2 id="modal-title">ডোনার প্রোফাইল</h2><p class="desc">ডোনার হিসেবে নিজের তথ্য সেট করুন</p></div><button class="close" onclick="closeModal()">×</button></div><form onsubmit="saveDonor(event)"><div class="field"><label>রক্তের গ্রুপ</label><select id="donor-group" class="control" required>${['A+','A−','B+','B−','O+','O−','AB+','AB−'].map(g=>`<option ${donor.group===g?'selected':''}>${g}</option>`).join('')}</select></div><div class="field"><label>জেলা</label><input id="donor-district" class="control" required maxlength="60" value="${esc(donor.district||'')}" placeholder="আপনার জেলা"></div><div class="field"><label>শেষ রক্তদানের তারিখ (ঐচ্ছিক)</label><input id="donor-last" type="date" class="control" value="${esc(donor.lastDate||'')}"></div><label class="checkline"><input id="donor-available" type="checkbox" ${donor.available?'checked':''}><span>আমি বর্তমানে ডোনার হিসেবে যোগাযোগ পাওয়ার জন্য উপলভ্য।</span></label><p class="small-note">শুধু তখনই উপলভ্য নির্বাচন করুন, যখন আপনি সত্যিই যোগাযোগ পেতে সম্মত। চিকিৎসাগত উপযুক্ততা স্বাস্থ্যকর্মী নির্ধারণ করবেন।</p><button class="btn btn-red btn-full">ডোনার প্রোফাইল সংরক্ষণ</button></form>`)}
+function saveDonor(e){e.preventDefault();const d=getData(),u=d.users.find(x=>x.id===d.session);if(!u)return;d.donor={owner:u.id,group:document.getElementById('donor-group').value,district:document.getElementById('donor-district').value.trim(),lastDate:document.getElementById('donor-last').value,available:document.getElementById('donor-available').checked};saveData(d);closeModal();renderProfile();toast('ডোনার প্রোফাইল এই ব্রাউজারে সংরক্ষিত হয়েছে।')}
+function openPostComposer(){const d=getData(),u=d.users.find(x=>x.id===d.session);if(!u){showModal(`<div class="modal-head"><div><h2 id="modal-title">কমিউনিটি post</h2><p class="desc">পোস্ট করতে আগে সাইন ইন করুন</p></div><button class="close" onclick="closeModal()">×</button></div><button class="btn btn-red btn-full" onclick="openAuth()">লগইন</button>`);return}showModal(`<div class="modal-head"><div><h2 id="modal-title">পোস্ট লিখুন</h2><p class="desc">সহায়ক ও সম্মানজনক পোস্ট লিখুন</p></div><button class="close" onclick="closeModal()">×</button></div><form onsubmit="savePost(event)"><div class="field"><label>পোস্টের শিরোনাম</label><input class="control" id="post-title" required maxlength="100" placeholder="আপনার পোস্টের শিরোনাম"></div><div class="field"><label>আপনার বার্তা</label><textarea class="control" id="post-body" required maxlength="800" rows="5" placeholder="আপনার গল্প বা সচেতনতার বার্তা লিখুন..."></textarea></div><p class="small-note">প্রিভিউ পোস্টটি এই ব্রাউজারে সংরক্ষণ করবে, অনলাইনে প্রকাশ করবে না।</p><button class="btn btn-red btn-full">পোস্ট সংরক্ষণ</button></form>`)}
+function savePost(e){e.preventDefault();const d=getData(),u=d.users.find(x=>x.id===d.session);if(!u)return;d.posts.unshift({id:'p_'+Date.now(),owner:u.id,name:u.name,title:document.getElementById('post-title').value.trim(),body:document.getElementById('post-body').value.trim(),time:'এইমাত্র'});saveData(d);closeModal();renderPosts();toast('পোস্ট এই ব্রাউজারে সংরক্ষিত হয়েছে।')}
+function renderPosts(){const d=getData(),sample=[{name:'Sadia Akter',time:'উদাহরণ পোস্ট · পরীক্ষামূলক',title:'আমার প্রথম রক্তদানের অভিজ্ঞতা',body:'একটি ছোট উদ্যোগও একটি পরিবারের জন্য আশার আলো হতে পারে। রক্তদানের উপযুক্ত হলে নিরাপদ রক্তদান সম্পর্কে জানুন।',id:'s1'},{name:'Mahin Rahman',time:'উদাহরণ পোস্ট · পরীক্ষামূলক',title:'রক্তদানের আগে যা মনে রাখবেন',body:'পর্যাপ্ত পানি পান করুন, সুষম খাবার খান এবং যোগ্য স্বাস্থ্যকর্মীর নির্দেশনা অনুসরণ করুন।',id:'s2'},{name:'RedSyncBD Team',time:'RedSyncBD-এর নমুনা পোস্ট',title:'ডোনার প্রোফাইল হালনাগাদ রাখুন',body:'নিজের রক্তদানের তারিখ ও ডোনার হিসেবে প্রাপ্যতা আপডেট রাখুন। অনুমতি ছাড়া অন্যের ফোন নম্বর শেয়ার করবেন না।',id:'s3'}];const all=[...d.posts.map(p=>({...p,time:p.time+' · আপনার ব্রাউজার'})),...sample];document.getElementById('post-list').innerHTML=all.map((p,i)=>`<article class="card post"><div class="post-head"><div class="post-avatar">${esc(p.name.split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><div><b>${esc(p.name)}</b><small>${esc(p.time)}</small></div></div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p><div class="post-actions"><button onclick="likePost('${esc(p.id)}')" style="border:0;background:none;color:var(--muted);padding:0">♡ ${p.likes||0} লাইক</button><button onclick="toast('কমেন্ট ফিচার বাস্তব সার্ভারে যুক্ত করতে হবে।')" style="border:0;background:none;color:var(--muted);padding:0">▢ মন্তব্য</button><button onclick="toast('এই ডেমোতে পোস্ট শেয়ারিং চালু নয়।')" style="border:0;background:none;color:var(--muted);padding:0">↗ শেয়ার</button></div></article>`).join('')}
+function likePost(id){toast('লাইক UI demo: অনলাইন লাইক কাউন্ট নেই।')}
+function openPrivacy(){showModal(`<div class="modal-head"><div><h2 id="modal-title">গোপনীয়তা ও নিরাপত্তা</h2><p class="desc">আপনার তথ্য কীভাবে ব্যবহার করবেন</p></div><button class="close" onclick="closeModal()">×</button></div><div class="detail-row"><b>প্রিভিউ ডেটা</b><p class="small-note">এই HTML ফাইলের ডেমো অ্যাকাউন্ট, অনুরোধ ও পোস্ট এই ব্রাউজারের localStorage-এ থাকতে পারে। ব্রাউজারের ডেটা মুছলে এগুলো হারাতে পারে।</p></div><div class="detail-row"><b>এটি প্রোডাকশন নিরাপত্তা নয়</b><p class="small-note">পাসওয়ার্ড এখানে লোকাল ডেমো হিসেবে রাখা হয়। বাস্তব অ্যাপে এভাবে ব্যবহার করবেন না। Firebase Authentication, server-side access control, secure database rules ও privacy consent দরকার।</p></div><button class="btn btn-outline btn-full" onclick="closeModal()">বন্ধ করুন</button>`)}
+document.getElementById('request-form').addEventListener('submit',e=>{e.preventDefault();if(!getData().session){authGate=true;openAuth('login',true);return}if(!e.target.reportValidity())return;const d=getData(),user=d.users.find(u=>u.id===d.session);const r={id:'r_'+Date.now(),patient:document.getElementById('patient').value.trim(),group:document.getElementById('blood').value,hospital:document.getElementById('hospital').value.trim(),district:document.getElementById('reqdistrict').value.trim(),upazila:document.getElementById('upazila').value.trim(),units:document.getElementById('units').value,when:document.getElementById('urgency').value,urgent:document.getElementById('urgency').value.startsWith('জরুরি'),phone:document.getElementById('phone').value.trim(),owner:user?user.id:null,demo:false};pendingRequest=r;showModal(`<div class="modal-head"><div><h2 id="modal-title">রিকোয়েস্ট যাচাই করুন</h2><p class="desc">সংরক্ষণের আগে তথ্যগুলো দেখে নিন</p></div><button class="close" onclick="closeModal()">×</button></div><div style="display:flex;gap:12px;align-items:center"><span class="blood" style="width:60px;height:60px;font-size:18px">${esc(r.group)}</span><div><b>${esc(r.patient)}</b><div class="subtitle">${esc(r.units)} · ${esc(r.when)}</div></div></div><div class="detail-row"><small>হাসপাতাল</small><b>${esc(r.hospital)}</b></div><div class="detail-row"><small>জেলা / এলাকা</small><b>${esc(r.district)}${r.upazila?' · '+esc(r.upazila):''}</b></div><div class="detail-row"><small>যোগাযোগ</small><b>${esc(r.phone)}</b></div><div class="notice">সেভ করলে অনুরোধটি এই ব্রাউজারের লোকাল ডেটায় থাকবে। এটি অন্য ডোনারদের কাছে যাবে না।</div><div class="modal-foot"><button class="btn btn-outline" onclick="closeModal()">Edit</button><button class="btn btn-red" onclick="saveRequest()">Confirm & save</button></div>`)}); 
+let pendingRequest=null; function saveRequest(){const r=pendingRequest;if(!r)return;const d=getData();d.requests.unshift(r);if(saveData(d)){closeModal();document.getElementById('request-form').reset();renderHome();toast('রিকোয়েস্ট এই ব্রাউজারে সংরক্ষণ হয়েছে।');navigate('home')}}
+
+// Firebase connection layer — preserves the original mobile-tested UI.
+const firebaseConfig = {
+  apiKey: "AIzaSyCLThOwwsz0MSJINUHp5WujKqSIh2JtbIY",
+  authDomain: "redsyncbd2.firebaseapp.com",
+  projectId: "redsyncbd2",
+  storageBucket: "redsyncbd2.firebasestorage.app",
+  messagingSenderId: "913121847175",
+  appId: "1:913121847175:web:ae90ca141a98c27da11522",
+  measurementId: "G-RRREZ4KNHF"
+};
+if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+const fbAuth = firebase.auth();
+const fbDb = firebase.firestore();
+let fbUser = null;
+let fbReady = false;
+let cloudRequests = [];
+let cloudPosts = [];
+let cloudDonor = null;
+const localGetData = getData;
+
+function getData(){
+  const d = localGetData();
+  if (fbUser) {
+    d.session = fbUser.uid;
+    const cached = d.users.find(u => u.id === fbUser.uid);
+    if (cached) {
+      d.users = d.users.filter(u => u.id !== fbUser.uid);
+      d.users.push(cached);
+    }
+    d.requests = cloudRequests;
+    d.posts = cloudPosts;
+    d.donor = cloudDonor;
+  } else {
+    d.session = null;
+  }
+  return d;
+}
+function firebaseError(e){
+  const map = {
+    "auth/email-already-in-use":"এই ইমেইলে আগে থেকেই অ্যাকাউন্ট আছে। লগইন করুন।",
+    "auth/invalid-email":"সঠিক ইমেইল ঠিকানা দিন।",
+    "auth/weak-password":"পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।",
+    "auth/user-not-found":"এই ইমেইলে কোনো অ্যাকাউন্ট পাওয়া যায়নি।",
+    "auth/wrong-password":"ইমেইল বা পাসওয়ার্ড সঠিক নয়।",
+    "auth/invalid-credential":"ইমেইল বা পাসওয়ার্ড সঠিক নয়।",
+    "auth/network-request-failed":"ইন্টারনেট সংযোগ পরীক্ষা করুন।",
+    "permission-denied":"Firestore Rules-এ এই কাজের অনুমতি নেই। Firebase Rules আপডেট করুন।"
+  };
+  return map[e.code] || ("কাজটি সম্পন্ন হয়নি: " + (e.message || "আবার চেষ্টা করুন"));
+}
+function safeText(id){const el=document.getElementById(id);return el ? el.value.trim() : ""}
+
+function validateAuthForm(form){
+  const reg=authMode==='register';
+  const ids=reg?['auth-name','auth-phone','auth-email','auth-password','auth-blood']:['auth-email','auth-password'];
+  if(reg) ids.push('auth-consent');
+  let first=null;
+  form.querySelectorAll('.field-error').forEach(el=>el.classList.remove('field-error'));
+  form.querySelectorAll('.control[aria-invalid="true"]').forEach(el=>el.removeAttribute('aria-invalid'));
+  for(const id of ids){
+    const el=document.getElementById(id); if(!el) continue;
+    let bad=false;
+    if(el.type==='checkbox') bad=!el.checked;
+    else if(el.required && !el.value.trim()) bad=true;
+    else if(el.type==='email' && el.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())) bad=true;
+    else if(el.minLength>0 && el.value.length<el.minLength) bad=true;
+    else if(el.id==='auth-phone' && el.value.trim() && !/^[0-9+() -]{10,18}$/.test(el.value.trim())) bad=true;
+    if(bad){
+      if(el.type==='checkbox'){const label=el.closest('label');if(label)label.classList.add('field-error')}
+      else {el.classList.add('field-error');el.setAttribute('aria-invalid','true')}
+      if(!first) first=el;
+    }
+  }
+  if(first){if(first.type!=='checkbox'){first.focus({preventScroll:true});first.scrollIntoView({behavior:'smooth',block:'center'})}return false}
+  return true;
+}
+async function submitAuth(e){
+  e.preventDefault();
+  if(!validateAuthForm(e.target)) return;
+  const email=safeText('auth-email').toLowerCase();
+  const password=document.getElementById('auth-password').value;
+  const isRegister=authMode==='register';
+  const button=e.target.querySelector('button[type="submit"]');
+  if(button){button.disabled=true;button.textContent=isRegister?'অ্যাকাউন্ট তৈরি হচ্ছে…':'লগইন হচ্ছে…'}
+  try{
+    if(isRegister){
+      const never=!!document.getElementById('auth-never-donated').checked;
+      const profile={
+        uid:null,
+        name:safeText('auth-name'),
+        email,
+        phone:safeText('auth-phone'),
+        bloodGroup:document.getElementById('auth-blood').value,
+        lastDonationDate:never?'':document.getElementById('auth-last-date').value,
+        neverDonated:never,
+        createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+        updatedAt:firebase.firestore.FieldValue.serverTimestamp()
+      };
+      const cred=await fbAuth.createUserWithEmailAndPassword(email,password);
+      profile.uid=cred.user.uid;
+      await fbDb.collection('users').doc(cred.user.uid).set(profile);
+    } else {
+      await fbAuth.signInWithEmailAndPassword(email,password);
+    }
+    authGate=false;
+    closeModal();
+    toast(isRegister?'অ্যাকাউন্ট তৈরি হয়েছে!':'লগইন সফল হয়েছে!');
+  }catch(err){
+    toast(firebaseError(err));
+  }finally{
+    if(button){button.disabled=false;button.textContent=isRegister?'অ্যাকাউন্ট তৈরি করুন →':'লগইন করুন →'}
+  }
+}
+async function forgotPassword(){
+  const email=safeText('auth-email').toLowerCase();
+  if(!email){toast('আগে ইমেইল ঠিকানা লিখুন।');return}
+  try{await fbAuth.sendPasswordResetEmail(email);toast('পাসওয়ার্ড রিসেটের লিংক ইমেইলে পাঠানো হয়েছে।')}
+  catch(e){toast(firebaseError(e))}
+}
+async function logout(){
+  try{await fbAuth.signOut();authGate=true;openAuth('login',true);toast('আপনি লগআউট করেছেন।')}
+  catch(e){toast(firebaseError(e))}
+}
+async function saveProfile(e){
+  e.preventDefault();
+  if(!fbUser)return openAuth('login',true);
+  const never=document.getElementById('edit-never').checked;
+  const patch={
+    name:safeText('edit-name'),
+    phone:safeText('edit-phone'),
+    bloodGroup:document.getElementById('edit-blood').value,
+    neverDonated:never,
+    lastDonationDate:never?'':document.getElementById('edit-last-date').value,
+    updatedAt:firebase.firestore.FieldValue.serverTimestamp()
+  };
+  try{
+    await fbDb.collection('users').doc(fbUser.uid).set({...patch,uid:fbUser.uid,email:fbUser.email},{merge:true});
+    const d=localGetData();let u=d.users.find(x=>x.id===fbUser.uid);
+    if(!u){u={id:fbUser.uid};d.users.push(u)}
+    Object.assign(u,patch,{email:fbUser.email});d.session=fbUser.uid;localStorage.setItem(KEY,JSON.stringify(d));
+    closeModal();renderProfile();toast('প্রোফাইল Firebase-এ সংরক্ষণ হয়েছে।');
+  }catch(err){toast(firebaseError(err))}
+}
+async function saveDonor(e){
+  e.preventDefault();
+  if(!fbUser)return openAuth('login',true);
+  const donor={uid:fbUser.uid,owner:fbUser.uid,group:document.getElementById('donor-group').value,
+    district:safeText('donor-district'),lastDate:document.getElementById('donor-last').value,
+    available:document.getElementById('donor-available').checked,
+    updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
+  try{
+    await fbDb.collection('donors').doc(fbUser.uid).set(donor,{merge:true});
+    cloudDonor=donor;closeModal();renderProfile();renderDonors();toast('ডোনার প্রোফাইল অনলাইনে সংরক্ষিত হয়েছে।');
+  }catch(err){toast(firebaseError(err))}
+}
+async function savePost(e){
+  e.preventDefault();
+  if(!fbUser)return openAuth('login',true);
+  const d=localGetData();const u=d.users.find(x=>x.id===fbUser.uid)||{};
+  const post={uid:fbUser.uid,owner:fbUser.uid,name:u.name||fbUser.email,title:safeText('post-title'),
+    body:safeText('post-body'),likes:0,createdAt:firebase.firestore.FieldValue.serverTimestamp()};
+  try{await fbDb.collection('posts').add(post);closeModal();toast('পোস্ট অনলাইনে প্রকাশিত হয়েছে।')}
+  catch(err){toast(firebaseError(err))}
+}
+async function saveRequest(){
+  const r=pendingRequest;if(!r)return;
+  if(!fbUser){authGate=true;openAuth('login',true);return}
+  const payload={uid:fbUser.uid,owner:fbUser.uid,patient:r.patient,group:r.group,hospital:r.hospital,
+    district:r.district,upazila:r.upazila||'',units:r.units,when:r.when,urgent:!!r.urgent,
+    phone:r.phone||'',createdAt:firebase.firestore.FieldValue.serverTimestamp()};
+  try{
+    await fbDb.collection('requests').add(payload);
+    closeModal();document.getElementById('request-form').reset();toast('রক্তের অনুরোধ অনলাইনে প্রকাশিত হয়েছে।');navigate('home');
+  }catch(err){toast(firebaseError(err))}
+}
+function navigate(id){
+  if(!fbUser){authGate=true;openAuth('login',true);return}
+  document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.screen===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='donors')renderDonors();if(id==='profile')renderProfile();if(id==='community')renderPosts();
+}
+function renderProfile(){
+  const d=localGetData(),u=d.users.find(x=>x.id===(fbUser&&fbUser.uid));
+  const name=u?u.name:(fbUser?fbUser.email:'Guest User');
+  const days=u&&u.lastDonationDate?Math.max(0,Math.floor((Date.now()-new Date(u.lastDonationDate+'T00:00:00').getTime())/86400000)):null;
+  const mine=cloudRequests.filter(r=>r.owner===(fbUser&&fbUser.uid));
+  document.getElementById('profile-content').innerHTML=`<div class="card profile-card"><div class="avatar">${esc(name.split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><h2>${esc(name)}</h2><p>${esc(fbUser?fbUser.email:'')}</p>${fbUser?`<span class="pill">● Firebase-এ লগইন করা</span><div class="helper-box" style="text-align:left"><b>রক্তের গ্রুপ:</b> ${esc(u&&u.bloodGroup||'যোগ করা হয়নি')}<br><b>শেষ রক্তদান:</b> ${u&&u.neverDonated?'আগে কখনো রক্ত দেননি':(days===null?'তারিখ দেওয়া হয়নি':days+' দিন আগে')}</div>`:'<button class="btn btn-red" onclick="openAuth()">লগইন / নতুন অ্যাকাউন্ট</button>'}</div>${fbUser?`<div class="stats"><div class="stat"><b>${mine.length}</b><span>আমার অনুরোধ</span></div><div class="stat"><b>${cloudDonor&&cloudDonor.available?'হ্যাঁ':'—'}</b><span>ডোনার অবস্থা</span></div><div class="stat"><b>${cloudPosts.filter(p=>p.owner===fbUser.uid).length}</b><span>আমার পোস্ট</span></div></div>`:''}<button class="card menu" onclick="${fbUser?'openEditProfile()':'openAuth()'}"><span class="menu-icon">♙</span><span class="menu-copy"><b>প্রোফাইল সম্পাদনা</b><p>নাম, ফোন ও ডোনার তথ্য</p></span><span class="chev">›</span></button><button class="card menu" onclick="navigate('request')"><span class="menu-icon">▤</span><span class="menu-copy"><b>আমার রক্তের অনুরোধ</b><p>নিজের তৈরি অনুরোধ</p></span><span class="chev">›</span></button><button class="card menu" onclick="openDonorSetup()"><span class="menu-icon">♥</span><span class="menu-copy"><b>ডোনার হিসেবে প্রাপ্যতা</b><p>ডোনার হিসেবে তথ্য সেট করুন</p></span><span class="chev">›</span></button><button class="card menu" onclick="openনোটিফিকেশন()"><span class="menu-icon">♧</span><span class="menu-copy"><b>নোটিফিকেশন</b><p>অ্যাপের আপডেট</p></span><span class="chev">›</span></button>${fbUser?'<button class="btn btn-outline btn-full" onclick="logout()">লগআউট</button>':''}`;
+}
+function renderDonors(){
+  const q=(document.getElementById('donor-search').value||'').toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;
+  const list=cloudDonor&&cloudDonor.available?[cloudDonor].filter(x=>(g==='All groups'||x.group===g)&&(d==='All districts'||x.district===d)&&(`${x.name||''} ${x.group} ${x.district}`.toLowerCase().includes(q))):[];
+  document.getElementById('donor-count').textContent=`${list.length} জন ডোনার`;
+  document.getElementById('donor-list').innerHTML=list.length?list.map(x=>`<div class="card request-card"><span class="post-avatar">${esc((x.name||'Donor').split(' ').map(y=>y[0]).slice(0,2).join(''))}</span><span class="info"><span class="request-top"><b>${esc(x.name||'RedSyncBD Donor')}</b></span><span class="hospital">${esc(x.district)} · ${esc(x.lastDate||'শেষ দানের তারিখ দেওয়া হয়নি')}</span></span><span class="blood">${esc(x.group)}</span></div>`).join(''):'<div class="card empty"><strong>লাইভ ডোনার ডেটা লোড হচ্ছে বা এখনো নেই</strong><span class="small-note">Firebase-এ ডোনার প্রোফাইল তৈরি হলে এখানে দেখাবে।</span></div>';
+}
+function renderPosts(){
+  const sample=[{name:'RedSyncBD Team',time:'তথ্য',title:'ডোনার প্রোফাইল হালনাগাদ রাখুন',body:'নিজের তথ্য ও প্রাপ্যতা সঠিক রাখুন।'}];
+  const all=[...cloudPosts.map(p=>({...p,time:'কমিউনিটি'})),...sample];
+  document.getElementById('post-list').innerHTML=all.map(p=>`<article class="card post"><div class="post-head"><div class="post-avatar">${esc((p.name||'U').split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><div><b>${esc(p.name||'RedSyncBD User')}</b><small>${esc(p.time||'কমিউনিটি')}</small></div></div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p><div class="post-actions"><span>♡ ${p.likes||0} লাইক</span></div></article>`).join('');
+}
+function renderHome(){
+  const list=[...cloudRequests,...seedRequests].slice(0,5);
+  document.getElementById('home-requests').innerHTML=list.map(requestCard).join('');
+}
+function startFirebaseData(uid){
+  fbDb.collection('users').doc(uid).get().then(doc=>{
+    const profile=doc.exists?doc.data():{uid,name:fbUser.email.split('@')[0],email:fbUser.email,phone:'',bloodGroup:'',lastDonationDate:'',neverDonated:false};
+    const d=localGetData();d.users=d.users.filter(x=>x.id!==uid);d.users.push({...profile,id:uid});d.session=uid;localStorage.setItem(KEY,JSON.stringify(d));
+    renderProfile();
+  }).catch(e=>toast(firebaseError(e)));
+  fbDb.collection('requests').orderBy('createdAt','desc').limit(30).onSnapshot(s=>{
+    cloudRequests=s.docs.map(doc=>({id:doc.id,...doc.data(),createdAt:doc.data().createdAt&&doc.data().createdAt.toDate?doc.data().createdAt.toDate().toISOString():'',demo:false}));
+    renderHome();renderProfile();
+  },e=>console.warn('requests listener:',e.code));
+  fbDb.collection('posts').orderBy('createdAt','desc').limit(30).onSnapshot(s=>{
+    cloudPosts=s.docs.map(doc=>({id:doc.id,...doc.data(),createdAt:doc.data().createdAt&&doc.data().createdAt.toDate?doc.data().createdAt.toDate().toISOString():'',time:'কমিউনিটি'}));
+    renderPosts();renderProfile();
+  },e=>console.warn('posts listener:',e.code));
+  fbDb.collection('donors').where('available','==',true).onSnapshot(s=>{
+    const list=s.docs.map(doc=>({id:doc.id,...doc.data()}));
+    cloudDonor=list.find(x=>x.uid===uid)||null;
+    renderDonors();renderProfile();
+  },e=>console.warn('donors listener:',e.code));
+}
+window.setTimeout(()=>{
+  if(!fbReady){
+    const splash=document.getElementById('splash-screen');
+    if(splash)splash.classList.add('hide');
+    const toastEl=document.getElementById('toast');
+    if(toastEl){
+      toastEl.textContent='Firebase লোড হয়নি। ইন্টারনেট চালু করে ওয়েবসাইটের অনলাইন লিংক খুলুন।';
+      toastEl.classList.add('show');
+    }
+  }
+},8000);
+fbAuth.onAuthStateChanged(user=>{
+  fbUser=user;fbReady=true;
+  if(user){
+    authGate=false;
+    startFirebaseData(user.uid);
+    closeModal();
+    renderHome();renderDonors();renderPosts();renderProfile();
+  }else{
+    cloudRequests=[];cloudPosts=[];cloudDonor=null;
+    authGate=true;
+    openAuth('login',true);
+  }
+});
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!(authGate&&!getData().session))closeModal()});
+renderHome();renderDonors();renderPosts();renderProfile();
+// Firebase auth-state listener controls whether the login screen appears.
+</script>
+</body></html>
