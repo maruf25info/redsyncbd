@@ -142,7 +142,7 @@ textarea{resize:vertical}
  <div class="quick-grid"><button class="quick" onclick="navigate('donors')"><div class="qicon">⌕</div><b>Find donors</b></button><button class="quick" onclick="openDonorSetup()"><div class="qicon">♥</div><b>Become a donor</b></button><button class="quick" onclick="navigate('donors');document.getElementById('district').value='Dhaka';renderDonors()"><div class="qicon">⌖</div><b>Explore donors</b></button></div>
  <div class="section-head"><div><h2>Urgent requests</h2><p>এখন যাদের সাহায্য প্রয়োজন</p></div><button class="text-btn" onclick="navigate('request')">রক্তের অনুরোধ দিন ↗</button></div>
  <div id="home-requests"></div><div class="banner"><div class="banner-icon">🫶</div><div><b>আপনার রক্তদান গুরুত্বপূর্ণ</b><p>চিকিৎসকের পরামর্শ ও রক্তদান কেন্দ্রের নিয়ম মেনে রক্তদান করুন।</p></div></div>
- <p class="small-note" style="margin:12px 2px">পরীক্ষামূলক প্রিভিউ: এখানে দেখানো রক্তের অনুরোধগুলো নমুনা তথ্য; এগুলো বাস্তব রোগীর অনুরোধ নয়।</p>
+ <p class="small-note" style="margin:12px 2px">লাইভ অনুরোধ Firebase থেকে দেখানো হয়। জরুরি অবস্থায় হাসপাতাল বা স্থানীয় জরুরি সেবার সঙ্গেও যোগাযোগ করুন।</p>
 </section>
 <section id="donors" class="screen">
  <div class="page-intro"><h1 class="page-title">রক্তদাতা খুঁজুন</h1><p class="subtitle">রক্তের গ্রুপ ও এলাকা নির্বাচন করে সম্ভাব্য ডোনার খুঁজুন।</p></div>
@@ -206,12 +206,12 @@ const donors=[
 function readLocalData(){try{return JSON.parse(localStorage.getItem(KEY))||{users:[],session:null,requests:[],posts:[],donor:null}}catch(e){return {users:[],session:null,requests:[],posts:[],donor:null}}}
 function saveData(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){toast('এই ব্রাউজারে ডেটা সেভ করা যায়নি।');return false}}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function allRequests(){return [...getData().requests,...seedRequests]}
+function allRequests(){return [...getData().requests]}
 function toast(msg){const e=document.getElementById('toast');e.textContent=msg;e.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>e.classList.remove('show'),2600)}
 function navigate(id){if(!getData().session){authGate=true;openAuth('login',true);return}document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.screen===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='donors')renderDonors();if(id==='profile')renderProfile();if(id==='community')renderPosts()}
 function requestCard(r){const idx=encodeURIComponent(r.id);return `<button class="card request-card" onclick="showRequest('${idx}')"><span class="blood">${esc(r.group)}</span><span class="info"><span class="request-top"><b>${esc(r.patient)}</b>${r.urgent?'<span class="urgent">জরুরি</span>':''}${r.demo?'<span class="demo-label">নমুনা</span>':''}</span><span class="hospital">${esc(r.hospital)}</span><span class="meta"><span>⌖ ${esc(r.district)}</span><span>◷ ${esc(r.when)}</span><span>▣ ${esc(r.units)}</span></span></span><span class="chev">›</span></button>`}
 function renderHome(){document.getElementById('home-requests').innerHTML=allRequests().slice(0,5).map(requestCard).join('')}
-function renderDonors(){const q=(document.getElementById('donor-search').value||'').toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;const list=donors.filter(x=>(g==='All groups'||x.group===g)&&(d==='All districts'||x.district===d)&&(`${x.name} ${x.group} ${x.district}`.toLowerCase().includes(q)));document.getElementById('donor-count').textContent=`${list.length} জন ডোনার`;document.getElementById('donor-list').innerHTML=list.length?list.map(x=>`<div class="card request-card"><span class="post-avatar">${esc(x.name.split(' ').map(y=>y[0]).slice(0,2).join(''))}</span><span class="info"><span class="request-top"><b>${esc(x.name)}</b></span><span class="hospital">${esc(x.district)} · ${esc(x.last)}</span><span class="meta"><span style="color:var(--green)">● Demo profile</span></span></span><span class="blood">${esc(x.group)}</span><button aria-label="Contact donor" onclick="event.stopPropagation();contactDonor()" style="border:0;background:#fff;color:var(--red);font-size:18px">☎</button></div>`).join(''):'<div class="card empty"><div style="font-size:32px">⌕</div><strong>কোনো ডোনার পাওয়া যায়নি</strong><span class="small-note">ব্লাড গ্রুপ বা জেলা পরিবর্তন করে দেখুন।</span></div>'}
+function renderDonors(){const q=(document.getElementById('donor-search').value||'').toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;const list=[];document.getElementById('donor-count').textContent=`${list.length} জন ডোনার`;document.getElementById('donor-list').innerHTML='<div class="card empty"><div style="font-size:32px">⌕</div><strong>লাইভ ডোনার তালিকা লোড হচ্ছে</strong><span class="small-note">Firebase থেকে উপলভ্য ও যোগাযোগে সম্মত ডোনার দেখানো হবে।</span></div>'}
 function showModal(content){const b=document.getElementById('modal-backdrop');document.getElementById('modal-body').innerHTML=content;b.classList.add('show');b.classList.toggle('gated',authGate);document.body.style.overflow='hidden'}
 function closeModal(){if(authGate&&!getData().session)return;const b=document.getElementById('modal-backdrop');b.classList.remove('show','gated');document.body.style.overflow=''}
 function showRequest(id){const r=allRequests().find(x=>x.id===decodeURIComponent(id));if(!r)return;showModal(`<div class="modal-head"><div><h2 id="modal-title">অনুরোধের বিস্তারিত</h2><p class="desc">রক্তের অনুরোধের বিস্তারিত</p></div><button class="close" onclick="closeModal()">×</button></div><div style="display:flex;align-items:center;gap:13px;margin-bottom:12px"><span class="blood" style="width:62px;height:62px;font-size:19px">${esc(r.group)}</span><div><b style="font-size:15px">${esc(r.patient)}</b><div class="subtitle">${esc(r.units)} · ${esc(r.when)}</div>${r.urgent?'<span class="urgent" style="display:inline-block;margin-top:7px">জরুরি রক্তের অনুরোধ</span>':''}</div></div><div class="detail-row"><small>হাসপাতাল</small><b>${esc(r.hospital)}</b></div><div class="detail-row"><small>জেলা / এলাকা</small><b>${esc(r.district)}${r.upazila?' · '+esc(r.upazila):''}</b></div><div class="notice">প্রকাশের আগে তথ্য যাচাই করুন। নমুনা অনুরোধ বাস্তব চিকিৎসা-সংক্রান্ত অনুরোধ নয়। অপরিচিত কাউকে টাকা পাঠাবেন না।</div><div class="modal-foot"><button class="btn btn-outline" onclick="closeModal()">বন্ধ করুন</button><button class="btn btn-red" onclick="contactDonor()">♥ আমি সাহায্য করতে চাই</button></div>`)}
@@ -280,6 +280,7 @@ let fbReady = false;
 let cloudRequests = [];
 let cloudPosts = [];
 let cloudDonor = null;
+let cloudDonors = [];
 const localGetData = readLocalData;
 
 function getData(){
@@ -408,9 +409,11 @@ async function saveProfile(e){
 async function saveDonor(e){
   e.preventDefault();
   if(!fbUser)return openAuth('login',true);
-  const donor={uid:fbUser.uid,owner:fbUser.uid,group:document.getElementById('donor-group').value,
+  const local=localGetData();
+  const profile=local.users.find(x=>x.id===fbUser.uid)||{};
+  const donor={uid:fbUser.uid,owner:fbUser.uid,name:profile.name||fbUser.displayName||'',phone:profile.phone||'',email:fbUser.email||'',group:profile.bloodGroup||document.getElementById('donor-group').value,
     district:safeText('donor-district'),lastDate:document.getElementById('donor-last').value,
-    available:document.getElementById('donor-available').checked,
+    available:document.getElementById('donor-available').checked,consentToContact:document.getElementById('donor-available').checked,
     updatedAt:firebase.firestore.FieldValue.serverTimestamp()};
   try{
     await fbDb.collection('donors').doc(fbUser.uid).set(donor,{merge:true});
@@ -452,10 +455,10 @@ function renderProfile(){
   document.getElementById('profile-content').innerHTML=`<div class="card profile-card"><div class="avatar">${esc(name.split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><h2>${esc(name)}</h2><p>${esc(fbUser?fbUser.email:'')}</p>${fbUser?`<span class="pill">● Firebase-এ লগইন করা</span><div class="helper-box" style="text-align:left"><b>রক্তের গ্রুপ:</b> ${esc(u&&u.bloodGroup||'যোগ করা হয়নি')}<br><b>শেষ রক্তদান:</b> ${u&&u.neverDonated?'আগে কখনো রক্ত দেননি':(days===null?'তারিখ দেওয়া হয়নি':days+' দিন আগে')}</div>`:'<button class="btn btn-red" onclick="openAuth()">লগইন / নতুন অ্যাকাউন্ট</button>'}</div>${fbUser?`<div class="stats"><div class="stat"><b>${mine.length}</b><span>আমার অনুরোধ</span></div><div class="stat"><b>${cloudDonor&&cloudDonor.available?'হ্যাঁ':'—'}</b><span>ডোনার অবস্থা</span></div><div class="stat"><b>${cloudPosts.filter(p=>p.owner===fbUser.uid).length}</b><span>আমার পোস্ট</span></div></div>`:''}<button class="card menu" onclick="${fbUser?'openEditProfile()':'openAuth()'}"><span class="menu-icon">♙</span><span class="menu-copy"><b>প্রোফাইল সম্পাদনা</b><p>নাম, ফোন ও ডোনার তথ্য</p></span><span class="chev">›</span></button><button class="card menu" onclick="navigate('request')"><span class="menu-icon">▤</span><span class="menu-copy"><b>আমার রক্তের অনুরোধ</b><p>নিজের তৈরি অনুরোধ</p></span><span class="chev">›</span></button><button class="card menu" onclick="openDonorSetup()"><span class="menu-icon">♥</span><span class="menu-copy"><b>ডোনার হিসেবে প্রাপ্যতা</b><p>ডোনার হিসেবে তথ্য সেট করুন</p></span><span class="chev">›</span></button><button class="card menu" onclick="openনোটিফিকেশন()"><span class="menu-icon">♧</span><span class="menu-copy"><b>নোটিফিকেশন</b><p>অ্যাপের আপডেট</p></span><span class="chev">›</span></button>${fbUser?'<button class="btn btn-outline btn-full" onclick="logout()">লগআউট</button>':''}`;
 }
 function renderDonors(){
-  const q=(document.getElementById('donor-search').value||'').toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;
-  const list=cloudDonor&&cloudDonor.available?[cloudDonor].filter(x=>(g==='All groups'||x.group===g)&&(d==='All districts'||x.district===d)&&(`${x.name||''} ${x.group} ${x.district}`.toLowerCase().includes(q))):[];
+  const q=(document.getElementById('donor-search').value||'').trim().toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;
+  const list=cloudDonors.filter(x=>x.available===true&&x.consentToContact!==false&&(g==='All groups'||x.group===g)&&(d==='All districts'||String(x.district||'').toLowerCase()===d.toLowerCase())&&(`${x.name||''} ${x.group||''} ${x.district||''}`.toLowerCase().includes(q)));
   document.getElementById('donor-count').textContent=`${list.length} জন ডোনার`;
-  document.getElementById('donor-list').innerHTML=list.length?list.map(x=>`<div class="card request-card"><span class="post-avatar">${esc((x.name||'Donor').split(' ').map(y=>y[0]).slice(0,2).join(''))}</span><span class="info"><span class="request-top"><b>${esc(x.name||'RedSyncBD Donor')}</b></span><span class="hospital">${esc(x.district)} · ${esc(x.lastDate||'শেষ দানের তারিখ দেওয়া হয়নি')}</span></span><span class="blood">${esc(x.group)}</span></div>`).join(''):'<div class="card empty"><strong>লাইভ ডোনার ডেটা লোড হচ্ছে বা এখনো নেই</strong><span class="small-note">Firebase-এ ডোনার প্রোফাইল তৈরি হলে এখানে দেখাবে।</span></div>';
+  document.getElementById('donor-list').innerHTML=list.length?list.map(x=>{const phone=String(x.phone||'').replace(/[^0-9+]/g,'');const digits=phone.replace(/\D/g,'');const wa=digits.startsWith('0')?'880'+digits.slice(1):digits;const canContact=!!phone;return `<div class="card request-card"><span class="post-avatar">${esc((x.name||'Donor').split(' ').map(y=>y[0]).slice(0,2).join(''))}</span><span class="info"><span class="request-top"><b>${esc(x.name||'RedSyncBD Donor')}</b></span><span class="hospital">${esc(x.district||'জেলা দেওয়া হয়নি')} · ${esc(x.lastDate||'শেষ দানের তারিখ দেওয়া হয়নি')}</span><span class="meta"><span style="color:var(--green)">● যোগাযোগে সম্মত</span></span></span><span class="blood">${esc(x.group||'—')}</span>${canContact?`<button aria-label="ডোনারকে ফোন করুন" onclick="event.stopPropagation();window.location.href='tel:${esc(phone)}'" style="border:0;background:#fff;color:var(--red);font-size:18px">☎</button><button aria-label="WhatsApp যোগাযোগ" onclick="event.stopPropagation();window.open('https://wa.me/${esc(wa)}','_blank','noopener')" style="border:0;background:#fff;color:var(--green);font-size:18px">◉</button>`:'<span class="small-note">ফোন নেই</span>'}</div>`}).join(''):'<div class="card empty"><strong>এখনো কোনো উপলভ্য ডোনার পাওয়া যায়নি</strong><span class="small-note">অন্য রক্তের গ্রুপ বা জেলা বেছে দেখুন। ডোনারকে নিজের প্রোফাইল তৈরি করে যোগাযোগে সম্মতি দিতে হবে।</span></div>';
 }
 function renderPosts(){
   const sample=[{name:'RedSyncBD Team',time:'তথ্য',title:'ডোনার প্রোফাইল হালনাগাদ রাখুন',body:'নিজের তথ্য ও প্রাপ্যতা সঠিক রাখুন।'}];
@@ -463,8 +466,8 @@ function renderPosts(){
   document.getElementById('post-list').innerHTML=all.map(p=>`<article class="card post"><div class="post-head"><div class="post-avatar">${esc((p.name||'U').split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><div><b>${esc(p.name||'RedSyncBD User')}</b><small>${esc(p.time||'কমিউনিটি')}</small></div></div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p><div class="post-actions"><span>♡ ${p.likes||0} লাইক</span></div></article>`).join('');
 }
 function renderHome(){
-  const list=[...cloudRequests,...seedRequests].slice(0,5);
-  document.getElementById('home-requests').innerHTML=list.map(requestCard).join('');
+  const list=cloudRequests.slice(0,5);
+  document.getElementById('home-requests').innerHTML=list.length?list.map(requestCard).join(''):'<div class="card empty"><strong>এখনো কোনো লাইভ রক্তের অনুরোধ নেই</strong><span class="small-note">প্রয়োজন হলে নতুন অনুরোধ তৈরি করুন। এখানে নমুনা রোগীর তথ্য দেখানো হয় না।</span></div>';
 }
 function startFirebaseData(uid){
   fbDb.collection('users').doc(uid).get().then(doc=>{
@@ -481,10 +484,10 @@ function startFirebaseData(uid){
     renderPosts();renderProfile();
   },e=>console.warn('posts listener:',e.code));
   fbDb.collection('donors').where('available','==',true).onSnapshot(s=>{
-    const list=s.docs.map(doc=>({id:doc.id,...doc.data()}));
-    cloudDonor=list.find(x=>x.uid===uid)||null;
+    cloudDonors=s.docs.map(doc=>({id:doc.id,...doc.data()}));
+    cloudDonor=cloudDonors.find(x=>x.uid===uid)||null;
     renderDonors();renderProfile();
-  },e=>console.warn('donors listener:',e.code));
+  },e=>{console.warn('donors listener:',e.code);toast(firebaseError(e))});
 }
 window.setTimeout(()=>{
   if(!fbReady){
@@ -505,7 +508,7 @@ fbAuth.onAuthStateChanged(user=>{
     closeModal();
     renderHome();renderDonors();renderPosts();renderProfile();
   }else{
-    cloudRequests=[];cloudPosts=[];cloudDonor=null;
+    cloudRequests=[];cloudPosts=[];cloudDonor=null;cloudDonors=[];
     authGate=true;
     openAuth('login',true);
   }
