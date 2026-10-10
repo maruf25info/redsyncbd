@@ -203,7 +203,7 @@ const donors=[
 {name:'Fahim Chowdhury',group:'O−',district:'Dhaka',last:'৮ মাস আগে রক্তদান'},
 {name:'Sadia Islam',group:'A−',district:'Sylhet',last:'৫ মাস আগে রক্তদান'}
 ];
-function getData(){try{return JSON.parse(localStorage.getItem(KEY))||{users:[],session:null,requests:[],posts:[],donor:null}}catch(e){return {users:[],session:null,requests:[],posts:[],donor:null}}}
+function readLocalData(){try{return JSON.parse(localStorage.getItem(KEY))||{users:[],session:null,requests:[],posts:[],donor:null}}catch(e){return {users:[],session:null,requests:[],posts:[],donor:null}}}
 function saveData(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){toast('এই ব্রাউজারে ডেটা সেভ করা যায়নি।');return false}}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function allRequests(){return [...getData().requests,...seedRequests]}
@@ -280,7 +280,7 @@ let fbReady = false;
 let cloudRequests = [];
 let cloudPosts = [];
 let cloudDonor = null;
-const localGetData = getData;
+const localGetData = readLocalData;
 
 function getData(){
   const d = localGetData();
