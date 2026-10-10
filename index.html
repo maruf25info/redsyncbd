@@ -455,16 +455,45 @@ function renderProfile(){
   const mine=cloudRequests.filter(r=>r.owner===(fbUser&&fbUser.uid));
   document.getElementById('profile-content').innerHTML=`<div class="card profile-card"><div class="avatar">${esc(name.split(' ').map(x=>x[0]).slice(0,2).join(''))}</div><h2>${esc(name)}</h2><p>${esc(fbUser?fbUser.email:'')}</p>${fbUser?`<span class="pill">● Firebase-এ লগইন করা</span><div class="helper-box" style="text-align:left"><b>রক্তের গ্রুপ:</b> ${esc(u&&u.bloodGroup||'যোগ করা হয়নি')}<br><b>শেষ রক্তদান:</b> ${u&&u.neverDonated?'আগে কখনো রক্ত দেননি':(days===null?'তারিখ দেওয়া হয়নি':days+' দিন আগে')}</div>`:'<button class="btn btn-red" onclick="openAuth()">লগইন / নতুন অ্যাকাউন্ট</button>'}</div>${fbUser?`<div class="stats"><div class="stat"><b>${mine.length}</b><span>আমার অনুরোধ</span></div><div class="stat"><b>${cloudDonor&&cloudDonor.available?'হ্যাঁ':'—'}</b><span>ডোনার অবস্থা</span></div><div class="stat"><b>${cloudPosts.filter(p=>p.owner===fbUser.uid).length}</b><span>আমার পোস্ট</span></div></div>`:''}<button class="card menu" onclick="${fbUser?'openEditProfile()':'openAuth()'}"><span class="menu-icon">♙</span><span class="menu-copy"><b>প্রোফাইল সম্পাদনা</b><p>নাম, ফোন ও ডোনার তথ্য</p></span><span class="chev">›</span></button><button class="card menu" onclick="navigate('request')"><span class="menu-icon">▤</span><span class="menu-copy"><b>আমার রক্তের অনুরোধ</b><p>নিজের তৈরি অনুরোধ</p></span><span class="chev">›</span></button><button class="card menu" onclick="openDonorSetup()"><span class="menu-icon">♥</span><span class="menu-copy"><b>ডোনার হিসেবে প্রাপ্যতা</b><p>ডোনার হিসেবে তথ্য সেট করুন</p></span><span class="chev">›</span></button><button class="card menu" onclick="openনোটিফিকেশন()"><span class="menu-icon">♧</span><span class="menu-copy"><b>নোটিফিকেশন</b><p>অ্যাপের আপডেট</p></span><span class="chev">›</span></button>${fbUser?'<button class="btn btn-outline btn-full" onclick="logout()">লগআউট</button>':''}`;
 }
+function normalizeDonationDate(value){
+  if(!value) return '';
+  // Firestore Timestamp-like values, Date objects, and ISO date strings.
+  if(typeof value==='object' && typeof value.toDate==='function') value=value.toDate();
+  if(value instanceof Date && !Number.isNaN(value.getTime())){
+    const y=value.getFullYear(),m=String(value.getMonth()+1).padStart(2,'0'),d=String(value.getDate()).padStart(2,'0');
+    return `${y}-${m}-${d}`;
+  }
+  const text=String(value).trim();
+  const match=text.match(/^(\d{4}-\d{2}-\d{2})/);
+  if(match) return match[1];
+  const parsed=new Date(text);
+  if(!Number.isNaN(parsed.getTime())){
+    const y=parsed.getFullYear(),m=String(parsed.getMonth()+1).padStart(2,'0'),d=String(parsed.getDate()).padStart(2,'0');
+    return `${y}-${m}-${d}`;
+  }
+  return text;
+}
 function donationEligibility(lastDate, neverDonated=false){
-  if(neverDonated || !lastDate) return {eligible:true, label:'প্রাথমিকভাবে ডোনার হতে পারেন', detail:'শেষ রক্তদানের তারিখ নেই; স্বাস্থ্যকর্মীর যাচাই প্রয়োজন', days: null};
-  const last = new Date(String(lastDate).slice(0,10)+'T00:00:00');
-  if(Number.isNaN(last.getTime())) return {eligible:null,label:'তারিখ যাচাই দরকার',detail:'শেষ রক্তদানের তারিখ সঠিক নয়',days:null};
-  const days = Math.floor((new Date().setHours(0,0,0,0)-last.getTime())/86400000);
-  if(days < 0) return {eligible:false,label:'তারিখ যাচাই দরকার',detail:'ভবিষ্যতের তারিখ দেওয়া হয়েছে',days};
+  // A real date takes precedence over a stale/inconsistent neverDonated flag.
+  // Missing history must never be presented as confirmed eligibility.
+  const normalized = normalizeDonationDate(lastDate);
+  if(!normalized){
+    return neverDonated
+      ? {eligible:null,label:'আগে রক্ত দেননি—যাচাই প্রয়োজন',detail:'প্রথমবার রক্তদানের উপযুক্ততা স্বাস্থ্যকর্মী নির্ধারণ করবেন',days:null}
+      : {eligible:null,label:'তারিখ দেওয়া নেই',detail:'শেষ রক্তদানের তারিখ যোগ করলে অ্যাপ প্রাথমিক হিসাব দেখাতে পারবে',days:null};
+  }
+  const match = normalized.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(!match) return {eligible:null,label:'তারিখ যাচাই দরকার',detail:'শেষ রক্তদানের তারিখ সঠিক নয়',days:null};
+  const last = new Date(Number(match[1]), Number(match[2])-1, Number(match[3]));
+  if(last.getFullYear()!==Number(match[1]) || last.getMonth()!==Number(match[2])-1 || last.getDate()!==Number(match[3]))
+    return {eligible:null,label:'তারিখ যাচাই দরকার',detail:'শেষ রক্তদানের তারিখ সঠিক নয়',days:null};
+  const today = new Date(); today.setHours(0,0,0,0);
+  const days = Math.floor((today.getTime()-last.getTime())/86400000);
+  if(days < 0) return {eligible:null,label:'তারিখ যাচাই দরকার',detail:'ভবিষ্যতের তারিখ দেওয়া হয়েছে',days};
   const remaining = Math.max(0,120-days);
   return days >= 120
-    ? {eligible:true,label:'১২০ দিন পূর্ণ',detail:`শেষ রক্তদানের পর ${days} দিন হয়েছে; এটি শুধু প্রাথমিক অ্যাপ-ভিত্তিক হিসাব`,days}
-    : {eligible:false,label:`আরও ${remaining} দিন`,detail:`শেষ রক্তদানের পর ${days} দিন হয়েছে; ১২০ দিন পূর্ণ হয়নি`,days};
+    ? {eligible:null,label:'১২০ দিন পূর্ণ',detail:`শেষ রক্তদানের পর ${days} দিন হয়েছে; এটি কেবল অ্যাপের প্রাথমিক হিসাব`,days}
+    : {eligible:false,label:`আরও ${remaining} দিন`,detail:`শেষ রক্তদানের পর ${days} দিন হয়েছে; অ্যাপের ১২০ দিনের হিসাব পূর্ণ হয়নি`,days};
 }
 function renderDonors(){
   const q=(document.getElementById('donor-search').value||'').trim().toLowerCase(),g=document.getElementById('group').value,d=document.getElementById('district').value;
@@ -479,7 +508,7 @@ function openDonorDetails(id){
   const digits=phone.replace(/\D/g,'');
   const wa=digits.startsWith('0')?'880'+digits.slice(1):digits;
   const eligibility=donationEligibility(x.lastDate,x.neverDonated===true);
-  showModal(`<div class="modal-head"><div><h2 id="modal-title">${esc(x.name||'ডোনারের তথ্য')}</h2><p class="desc">ডোনারের বিস্তারিত তথ্য</p></div><button class="close" onclick="closeModal()">×</button></div><div class="helper-box"><b>রক্তের গ্রুপ:</b> ${esc(x.group||'দেওয়া হয়নি')}<br><b>জেলা:</b> ${esc(x.district||'দেওয়া হয়নি')}<br><b>শেষ রক্তদান:</b> ${esc(x.lastDate||'তারিখ দেওয়া হয়নি')}<br><b>প্রাথমিক যোগ্যতা:</b> ${esc(eligibility.label)}<br><b>যোগাযোগ:</b> ${phone?esc(phone):'ফোন নম্বর দেওয়া নেই'}</div><div class="notice">এই ১২০ দিনের হিসাব কেবল অ্যাপের প্রাথমিক নির্দেশনা; এটি চিকিৎসাগত অনুমোদন নয়। রক্তদানের আগে রক্তদান কেন্দ্র/স্বাস্থ্যকর্মীর নির্দেশনা নিন।</div>${phone?`<div class="grid2"><a class="btn btn-red" style="text-align:center;text-decoration:none" href="tel:${esc(phone)}">☎ ফোন করুন</a><a class="btn btn-outline" style="text-align:center;text-decoration:none" href="https://wa.me/${esc(wa)}" target="_blank" rel="noopener">WhatsApp</a></div>`:'<p class="small-note">এই ডোনার ফোন নম্বর যোগ করেননি।</p>'}<p class="small-note">যোগাযোগের আগে ডোনারের সম্মতি ও রক্তদানের উপযুক্ততা নিশ্চিত করুন।</p>`);
+  showModal(`<div class="modal-head"><div><h2 id="modal-title">${esc(x.name||'ডোনারের তথ্য')}</h2><p class="desc">ডোনারের বিস্তারিত তথ্য</p></div><button class="close" onclick="closeModal()">×</button></div><div class="helper-box"><b>রক্তের গ্রুপ:</b> ${esc(x.group||'দেওয়া হয়নি')}<br><b>জেলা:</b> ${esc(x.district||'দেওয়া হয়নি')}<br><b>শেষ রক্তদান:</b> ${esc(x.lastDate||'তারিখ দেওয়া হয়নি')}<br><b>প্রাথমিক যোগ্যতা:</b> ${esc(eligibility.label)}<br><b>যোগাযোগ:</b> ${phone?esc(phone):'ফোন নম্বর দেওয়া নেই'}</div><div class="notice">এই ১২০ দিনের হিসাব কেবল অ্যাপের একটি আনুমানিক নির্দেশনা; এটি চিকিৎসাগত অনুমোদন নয় এবং সবার জন্য নির্দিষ্ট নিয়মও নয়। রক্তদানের উপযুক্ততা ও ব্যবধান রক্তদান কেন্দ্র/স্বাস্থ্যকর্মীর কাছ থেকে নিশ্চিত করুন।</div>${phone?`<div class="grid2"><a class="btn btn-red" style="text-align:center;text-decoration:none" href="tel:${esc(phone)}">☎ ফোন করুন</a><a class="btn btn-outline" style="text-align:center;text-decoration:none" href="https://wa.me/${esc(wa)}" target="_blank" rel="noopener">WhatsApp</a></div>`:'<p class="small-note">এই ডোনার ফোন নম্বর যোগ করেননি।</p>'}<p class="small-note">যোগাযোগের আগে ডোনারের সম্মতি ও রক্তদানের উপযুক্ততা নিশ্চিত করুন।</p>`);
 }
 function renderPosts(){
   const sample=[{name:'RedSyncBD Team',time:'তথ্য',title:'ডোনার প্রোফাইল হালনাগাদ রাখুন',body:'নিজের তথ্য ও প্রাপ্যতা সঠিক রাখুন।'}];
@@ -505,7 +534,15 @@ function startFirebaseData(uid){
     renderPosts();renderProfile();
   },e=>console.warn('posts listener:',e.code));
   fbDb.collection('donors').where('available','==',true).onSnapshot(s=>{
-    cloudDonors=s.docs.map(doc=>({id:doc.id,...doc.data()}));
+    cloudDonors=s.docs.map(doc=>{
+      const data=doc.data()||{};
+      // Use one canonical date for the donor card, detail modal, and eligibility calculation.
+      // Prefer the account profile's lastDonationDate when both legacy fields exist;
+      // normalize once so the card, details, and eligibility calculation use identical data.
+      const rawDate=data.lastDonationDate || data.lastDate || '';
+      const canonicalDate=normalizeDonationDate(rawDate);
+      return {id:doc.id,...data,lastDate:canonicalDate};
+    });
     cloudDonor=cloudDonors.find(x=>x.uid===uid)||null;
     renderDonors();renderProfile();
   },e=>{console.warn('donors listener:',e.code);toast(firebaseError(e))});
